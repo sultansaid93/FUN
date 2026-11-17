@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#84222b">
+  <meta name="description" content="لعبة اليوم الوطني العُماني التفاعلية — حتى عشرة فرق، 60 سؤالًا بأربعة خيارات وتقييم تلقائي، ترتيب مباشر للفرق، صندوق مفاجآت ومكافآت +2، حفظ تلقائي دون إنترنت.">
+  <title>راية المجد | تحدّي عُمان الوطني</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#a02e3c;--red-dark:#6a1f2b;--red-light:#f6e5e5;--green:#12634b;--green-dark:#0b4738;--green-light:#e3f0ea;--gold:#d7ac62;--ink:#243b36;--muted:#6b7772;--cream:#f8f6f0;--line:#e4e5dc;--panel:#fffdf8;--shadow:0 24px 70px rgba(42,64,49,.09);--radius:24px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;min-height:100vh;font-family:"Tajawal","Cairo","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;background:linear-gradient(180deg,#fffdf8 0%,#f9f6ef 53%,#f1f3ec 100%);color:var(--ink)}
+    button,input,select{font-family:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.6}a{color:var(--green)}
+    button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #c3a159;outline-offset:3px}
+    .flag-ribbon{position:fixed;inset:0 0 auto;height:7px;z-index:70;background:linear-gradient(to left,var(--red) 0 33.33%,#fff 33.33% 66.66%,var(--green) 66.66%)}
+    .decor{position:fixed;pointer-events:none;opacity:.26;z-index:0;filter:blur(.5px)}.decor.a{width:450px;height:450px;right:-230px;top:100px;border:48px solid #eedbca;border-radius:50%}.decor.b{width:380px;height:380px;left:-250px;bottom:6%;border:38px solid #c9e0d0;border-radius:50%}
+    #app{position:relative;z-index:1;max-width:1680px;margin:0 auto;padding:24px 26px 40px}.masthead{display:flex;justify-content:space-between;align-items:center;gap:18px;margin:12px 0 22px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:15px}.flag-symbol{display:grid;place-items:center;width:72px;height:72px;border:1px solid #edd6d2;border-radius:20px;background:linear-gradient(140deg,#fff 0%,#fff6ed 100%);box-shadow:0 10px 35px #9b25301c;font-size:40px}.brand .eyebrow{font-size:12px;color:var(--red);font-weight:900;letter-spacing:1.2px}.brand h1{font-size:clamp(24px,2.4vw,36px);margin:2px 0 0;line-height:1.2;color:var(--green-dark)}.brand h1 b{color:var(--red)}.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .btn{border:1px solid #d9e1d9;border-radius:14px;background:#fff;padding:12px 16px;color:var(--ink);font-size:14px;font-weight:800;display:inline-flex;gap:8px;justify-content:center;align-items:center;transition:transform .17s,background .17s,box-shadow .17s;line-height:1.25}.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 7px 17px rgba(24,50,39,.09)}.btn.primary{background:var(--red);border-color:var(--red);color:white}.btn.green{background:var(--green);border-color:var(--green);color:white}.btn.gold{background:#ead4a9;border-color:#ead4a9;color:#493813}.btn.ghost{background:transparent;border-color:transparent}.btn.soft{background:var(--cream)}.btn.big{font-size:19px;padding:17px 25px}.btn.tiny{padding:8px 12px;font-size:12px;border-radius:10px}.btn.block{width:100%}.btn.negative{background:#464d52;color:white;border-color:#464d52}.btn.outline-danger{border-color:#f0cbcd;color:#b0313d}
+    .hero{background:linear-gradient(115deg,#68232d 0%,#a8363e 46%,#b94b45 100%);border-radius:32px;overflow:hidden;color:white;box-shadow:0 26px 50px #751e2b24;position:relative}.hero:before,.hero:after{content:"";position:absolute;border:1px solid #ffffff42;border-radius:50%;width:450px;height:450px;pointer-events:none}.hero:before{left:-160px;top:-280px}.hero:after{right:37%;bottom:-355px;width:550px;height:550px}.hero-inner{padding:36px 42px;position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:26px}.hero h2{font-size:clamp(29px,4vw,55px);line-height:1.3;letter-spacing:-1px;margin:9px 0 8px}.hero p{color:#ffe9dc;font-size:16px;line-height:1.8;margin:0}.hero-sub{font-weight:850;font-size:12px;letter-spacing:3px;color:#ffe1a8}.hero-icon{font-size:clamp(85px,11vw,160px);line-height:1;filter:drop-shadow(0px 16px 20px #0003);transform:rotate(-8deg)}.hero .pill{display:inline-block;font-size:14px;border:1px solid #fbe8e664;border-radius:100px;padding:8px 14px;margin-top:17px;background:#ffffff1c}
+    .section-title{font-size:23px;font-weight:900;margin:0 0 15px;display:flex;justify-content:space-between;align-items:center;gap:10px}.section-title small{font-weight:700;color:var(--muted);font-size:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .setup-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(330px,.6fr);gap:22px;margin-top:24px}.setup-card{padding:28px}.setup-heading{margin:0 0 10px;color:var(--green-dark);font-size:28px}.lead{color:var(--muted);line-height:1.95;margin:0 0 20px}.field-label{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:900;margin:18px 0 9px}.count-bubble{display:inline-flex;align-items:center;justify-content:center;border-radius:100px;background:var(--red-light);color:var(--red);min-width:44px;padding:6px 12px;font-size:21px}.range{width:100%;accent-color:var(--red);cursor:pointer;margin:9px 0 16px}.team-input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.name-box{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid #dce5df;padding:10px;border-radius:15px}.name-index{min-width:33px;height:33px;display:grid;place-items:center;border-radius:10px;background:var(--green-light);color:var(--green);font-weight:900}.name-box input{border:0;outline:0;min-width:0;flex:1;background:transparent;font-size:15px;font-weight:750;color:var(--ink);width:100%;padding:6px 3px}.setup-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.select{width:100%;appearance:none;background:#fff;border:1px solid #d9e3dc;border-radius:13px;padding:14px 13px;color:var(--ink);font-weight:800;font-size:15px}.setup-note{border-radius:20px;background:linear-gradient(160deg,#f0f7f0,#fffaf0);padding:23px;border:1px solid #e1e7df;line-height:1.9}.setup-note h3{margin:0;color:var(--green-dark);font-size:20px}.howto{padding:0 18px 0 0;margin:12px 0 0}.howto li{padding:5px 0}.rule-icon{font-size:75px;display:block;text-align:center;margin:16px 0}.note-badge{display:inline-block;color:var(--red);background:#fbe8e5;font-size:12px;padding:7px 11px;border-radius:20px;font-weight:900}
+    .score-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px;margin:16px 0 18px}.team-score{position:relative;border:1px solid #dde7dd;background:#fffcf8;border-radius:17px;padding:13px 15px;min-width:0;overflow:hidden}.team-score:before{content:"";position:absolute;right:0;top:0;bottom:0;width:4px;background:var(--green)}.team-score.first{border-color:#d7ad62;background:#fffbef}.team-score.first:before{background:var(--gold)}.team-score .tname{font-size:13px;font-weight:850;line-height:1.4;white-space:normal;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:36px}.team-score .team-n{display:inline;color:var(--red);font-size:11px;font-weight:900}.team-score .tscore{font-size:28px;font-weight:950;color:var(--green-dark);margin-top:2px}.team-score .tscore small{font-size:11px;font-weight:700;color:var(--muted)}
+    .board-stats{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:15px 0 22px}.stat-pill{font-size:13px;font-weight:850;padding:9px 14px;background:#fff;border:1px solid var(--line);border-radius:100px}.stat-pill b{color:var(--red);font-size:17px}.progress{height:9px;background:#e2e8df;flex:1;min-width:180px;border-radius:50px;overflow:hidden}.progress > span{display:block;height:100%;border-radius:50px;background:linear-gradient(90deg,var(--red),var(--gold),var(--green));transition:width .35s}
+    .board-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:13px;align-items:stretch}.category-card{background:#fff;border:1px solid #e6e5df;border-radius:23px;padding:15px 12px;box-shadow:0 12px 28px #2742320b;min-width:0}.category-banner{text-align:center;min-height:122px;padding:13px 5px;border-radius:16px;background:#f9f0ec;display:flex;flex-direction:column;justify-content:center;align-items:center;margin-bottom:12px}.category-banner.green{background:#e8f4ee}.category-banner.gold{background:#fbf4e5}.category-banner .emoji{font-size:32px;line-height:1}.category-banner h3{font-size:clamp(15px,1.3vw,21px);margin:7px 0 2px;color:var(--red-dark);line-height:1.2}.category-banner.green h3{color:var(--green)}.category-banner.gold h3{color:#9b7229}.category-banner p{margin:0;color:#66716b;font-size:11px;font-weight:700}.question-tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.q-tile{height:52px;border:2px solid #efdfdd;background:linear-gradient(180deg,#fffcfa,#fff5f3);border-radius:13px;font-size:23px;font-weight:950;color:var(--red);position:relative}.q-tile:hover:not(:disabled){background:var(--red);color:#fff;box-shadow:0 7px 15px #a02e3c23;transform:translateY(-2px)}.category-card.green .q-tile{border-color:#d6e9dd;background:#f2faf5;color:var(--green)}.category-card.green .q-tile:hover:not(:disabled){background:var(--green);color:#fff}.category-card.gold .q-tile{border-color:#efe2c7;background:#fffbf2;color:#8d671e}.category-card.gold .q-tile:hover:not(:disabled){background:#ab853c;color:#fff}.q-tile.used,.category-card.green .q-tile.used,.category-card.gold .q-tile.used{background:#e5e6e5;border-color:#dbdddb;color:#9b9f9d;box-shadow:none;opacity:1;cursor:default;transform:none}.q-tile.used:after{content:'✓';position:absolute;top:3px;left:5px;font-size:12px;color:#7a8b81}.q-tile.used.wrong:after{content:'×'}.q-tile.used.pending:after{content:'…'}.resume{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;background:#fff9eb;border:1px solid #f1dcab;border-radius:16px;margin:12px 0}
+    .stage{background:radial-gradient(circle at 75% -35%,#ae4c4e,transparent 48%),linear-gradient(145deg,#153a32,#082c26 77%);color:white;border-radius:32px;min-height:560px;position:relative;overflow:hidden;padding:36px;box-shadow:0 28px 65px #123e3632}.stage:before{content:"";position:absolute;inset:0;opacity:.07;background-image:radial-gradient(circle at center,#fff 1px,transparent 1px);background-size:22px 22px;pointer-events:none}.stage-top,.stage-body,.stage-foot{position:relative;z-index:1}.stage-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.stage-chip{background:#ffffff1e;border:1px solid #ffffff4e;padding:10px 16px;border-radius:50px;font-size:14px;font-weight:800}.stage-team{background:#d7ac62;color:#2d291d;padding:10px 16px;border-radius:50px;font-weight:900}.stage-body{max-width:1100px;margin:20px auto 0;text-align:center}.stage-overline{color:#f0c987;letter-spacing:2px;font-size:14px;font-weight:950;margin-top:9px}.stage-question{font-weight:950;font-size:clamp(27px,3.4vw,53px);line-height:1.8;margin:20px auto 12px;max-width:1000px;text-wrap:balance}.visual-clue{font-size:clamp(55px,8vw,114px);letter-spacing:11px;direction:ltr;margin:8px 0 10px;filter:drop-shadow(0 16px 20px #0004)}.hint{font-size:17px;color:#d9e9df;font-weight:750}.timer-wrap{display:flex;align-items:center;justify-content:center;gap:38px;flex-wrap:wrap;margin:12px 0}.timer-circle{position:relative;width:157px;height:157px;flex:0 0 auto}.timer-circle svg{width:100%;height:100%;transform:rotate(-90deg)}.timer-circle .track{fill:none;stroke:#ffffff30;stroke-width:9}.timer-circle .bar{fill:none;stroke:#e9bd72;stroke-width:9;stroke-linecap:round;stroke-dasharray:377;stroke-dashoffset:0;transition:stroke-dashoffset .25s,stroke .3s}.timer-circle.danger .bar{stroke:#ff7c85}.timer-digit{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.timer-digit strong{font-size:55px;font-weight:950;line-height:1}.timer-digit span{font-size:13px;color:#dfded6}.stage-status{font-size:22px;font-weight:900;margin:16px 0 22px}.expired-banner{display:inline-block;background:#fcdfd0;color:#86313d;padding:15px 24px;border-radius:17px;font-size:23px;font-weight:950;margin:15px auto}.stage-foot{display:flex;gap:13px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:30px}.stage .btn{border-color:#ffffff4a}.stage .btn.primary{background:#bc4651;border-color:#bc4651}.stage .btn.green{background:#1d8062;border-color:#1d8062}.stage .btn.ghost{color:white}
+    .answer-box{margin:18px auto;max-width:900px;background:#fffffffa;color:#143f34;border-radius:24px;padding:25px 27px;border:3px solid #e1c78d;box-shadow:0 25px 60px #0002}.answer-box small{display:block;font-weight:900;color:#926d24;font-size:15px;margin:0 0 10px}.answer-box .answer-value{font-size:clamp(26px,3vw,46px);font-weight:950;line-height:1.7}.answer-box p{font-size:16px;line-height:1.8;color:#506359}.source-link{font-size:13px;font-weight:800;text-decoration:underline;text-underline-offset:4px}.source-link:before{content:'🔗 ';text-decoration:none}.judge-title{color:#fff8e3;font-size:21px;font-weight:850}.winner-stage{text-align:center}.winner-stage .trophy{font-size:90px;margin:4px auto 0}.winner-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:980px;margin:22px auto}.winner-item{padding:18px;border-radius:19px;border:1px solid #ffffff30;background:#ffffff14}.winner-item .rank{font-size:27px}.winner-item h3{font-size:22px;margin:6px 0}.winner-item .points{font-size:33px;color:#f0c987;font-weight:950}.results-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 17px;border-radius:100px;font-weight:950;font-size:18px;background:#ffffff26;color:white}
+    .modal-backdrop{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:20px;background:rgba(8,23,17,.65);backdrop-filter:blur(8px)}.modal-card{background:#fffdf8;width:min(660px,100%);max-height:92vh;overflow:auto;border-radius:28px;padding:26px;box-shadow:0 35px 100px #0b241b66}.modal-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:12px}.modal-head h2{font-size:26px;margin:5px 0;color:var(--green-dark)}.modal-head p{margin:5px 0;color:var(--muted);font-size:14px}.x-button{border:1px solid #e1e5e0;background:#fff;border-radius:13px;font-size:26px;width:43px;height:43px;color:#64706a;display:grid;place-items:center}.choose-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px}.choose-team{border:1px solid #e2e6df;border-radius:15px;background:#fff;padding:16px 13px;min-width:0;text-align:right;color:var(--ink);font-size:16px;font-weight:900;display:flex;align-items:center;gap:10px}.choose-team:hover{border-color:var(--green);background:#f1f7f2}.choose-team .mini-circle{width:30px;height:30px;border-radius:50%;background:#e8f2e9;display:grid;place-items:center;font-size:13px;flex:0 0 auto}.choose-team span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.modal-card .name-box{margin:8px 0}.modal-card .name-box input{padding:5px 2px}.modal-desc{line-height:1.8;color:var(--muted)}.modal-actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin-top:21px}
+    .footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:20px 6px;color:#67786d;font-size:12px;font-weight:750}.footer b{color:var(--red)}.toast{position:fixed;z-index:100;bottom:22px;left:50%;transform:translateX(-50%);background:#123d31;color:white;border-radius:50px;padding:13px 24px;box-shadow:0 14px 48px #071e1880;font-weight:800;max-width:min(90vw,600px);text-align:center;opacity:0;pointer-events:none;transition:opacity .25s}.toast.show{opacity:1}.confetti{position:fixed;inset:0;z-index:95;pointer-events:none;overflow:hidden}.confetti i{position:absolute;top:-10%;width:10px;height:18px;opacity:.95;animation:fall linear forwards}@keyframes fall{to{transform:translate3d(var(--drift),120vh,0) rotate(840deg);opacity:0}}
+    .saved-hint{color:#77907f;font-size:12px;font-weight:750}.kbd{display:inline-flex;padding:2px 6px;background:#efefe9;border:1px solid #deded6;border-radius:5px;font-size:12px;direction:ltr}
+    @media (max-width:1420px){.board-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.question-tiles{grid-template-columns:repeat(5,minmax(0,1fr))}.category-banner{min-height:100px}.setup-layout{grid-template-columns:1.1fr .9fr}}
+    @media (max-width:840px){#app{padding:14px 15px 35px}.hero-inner{padding:28px 25px}.hero-icon{font-size:80px}.setup-layout{grid-template-columns:1fr}.board-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.question-tiles{grid-template-columns:repeat(2,1fr)}.setup-card{padding:21px}.stage{padding:25px 17px;min-height:540px}.score-strip{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}}
+    @media(max-width:540px){.brand .eyebrow{font-size:10px}.brand h1{font-size:22px}.flag-symbol{width:54px;height:54px;font-size:29px}.masthead .actions{width:100%;justify-content:space-between}.masthead .actions .btn{font-size:12px;padding:9px}.hero-icon{display:none}.hero h2{font-size:30px}.board-grid{grid-template-columns:1fr 1fr;gap:8px}.category-card{padding:9px;border-radius:17px}.category-banner{min-height:102px;margin-bottom:8px}.category-banner h3{font-size:14px}.category-banner p{font-size:10px}.question-tiles{gap:5px}.q-tile{height:43px;font-size:20px}.team-input-grid,.setup-row,.choose-grid{grid-template-columns:1fr}.stage-question{font-size:27px}.timer-circle{width:125px;height:125px}.timer-digit strong{font-size:44px}.visual-clue{font-size:52px;letter-spacing:1px}.stage-foot .btn{width:100%}.footer{justify-content:center;text-align:center}.modal-card{padding:20px}}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;animation-duration:.001ms!important;scroll-behavior:auto!important}}
+    @media print{.actions,.modal-backdrop,.toast,.btn,.flag-ribbon{display:none!important}body{background:#fff}#app{max-width:100%}}
+  
+/* ==========================================================
+   RAYAT AL-MAJD · PREMIUM OMAN NATIONAL DAY EXPERIENCE
+   PRESENTATION-ONLY THEME — original content / game logic unchanged
+   All artwork is inline CSS/SVG; no internet, libraries or fonts required.
+   ========================================================== */
+:root{
+  --red:#ca233c; --red-dark:#801e35; --red-light:#fff0f0;
+  --green:#00885d; --green-dark:#064e40; --green-light:#dff9ec;
+  --gold:#ffce77; --ink:#14362f; --muted:#687d76;
+  --cream:#f9fbf6; --line:#d5e4db; --panel:#ffffff;
+  --shadow:0 18px 44px rgba(0,43,34,.14); --radius:24px;
+  --night:#051e27;
+}
+html{scroll-behavior:smooth}
+body{
+  background:radial-gradient(ellipse at 5% 4%,#143c40 0%,transparent 27%),
+    radial-gradient(ellipse at 97% 6%,#5d1e33 0%,transparent 26%),
+    radial-gradient(ellipse at 50% 94%,#094b45 0%,transparent 45%),
+    linear-gradient(130deg,#092d30,#061d27 48%,#102c32 100%);
+  background-attachment:fixed;color:#f5fff9;
+  font-family:"Noto Sans Arabic","Tajawal","Cairo",Tahoma,"Segoe UI",sans-serif;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.24;
+  background-image:radial-gradient(circle,#fce6bb 1px,transparent 1.7px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(180deg,#0003,transparent 65%);
+}
+.scene-ambient{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.scene-glow{position:absolute;display:block;border-radius:50%;filter:blur(3px);opacity:.7;
+  animation:amb-drift 24s ease-in-out infinite alternate}
+.scene-glow.a{width:42vw;height:42vw;max-width:650px;max-height:650px;right:-16vw;top:13vh;
+  background:radial-gradient(circle,#d41c373c 0%,#ed2d2011 45%,transparent 71%)}
+.scene-glow.b{width:39vw;height:39vw;max-width:600px;max-height:600px;left:-15vw;top:32vh;
+  background:radial-gradient(circle,#22ad8644 0%,#23ad8614 47%,transparent 71%);animation-delay:-13s}
+.scene-ring{position:absolute;width:290px;height:290px;border:1px solid #ffffff13;
+  border-radius:30%;transform:rotate(35deg);animation:amb-spin 52s linear infinite}
+.scene-ring.a{top:22%;left:-130px}.scene-ring.b{bottom:-165px;right:10%;width:380px;height:380px;animation-direction:reverse}
+.scene-spark{position:absolute;color:#fbdca0;opacity:.34;font-size:21px;animation:amb-spark 4.5s ease-in-out infinite}
+.scene-spark.a{top:15%;left:9%}.scene-spark.b{top:48%;right:5%;font-size:31px;animation-delay:-1.9s}
+.scene-spark.c{bottom:8%;left:28%;font-size:15px;animation-delay:-3s}
+@keyframes amb-drift{to{transform:translate3d(42px,-38px,0) scale(1.12)}}
+@keyframes amb-spin{to{transform:rotate(395deg)}}
+@keyframes amb-spark{0%,100%{opacity:.17;transform:scale(.7) rotate(-13deg)}50%{opacity:.74;transform:scale(1.25) rotate(25deg)}}
+.flag-ribbon{height:8px;background:linear-gradient(to left,#c91c36 0 31%,#fff 31% 65%,#07885b 65% 100%);
+  box-shadow:0 3px 20px #070c1166}
+.decor{display:none}
+#app{max-width:1740px;padding:21px clamp(14px,3vw,48px) 40px}
+.masthead{margin:6px 0 21px;padding:12px 6px 17px;border-bottom:1px solid #ffffff1a}
+.brand{gap:14px}
+.brand .eyebrow{color:#f9d69b;font-weight:950;font-size:11px;letter-spacing:2.1px}
+.brand h1{color:#fff;font-size:clamp(23px,2.45vw,37px);text-shadow:0 5px 22px #0005}
+.brand h1 b{color:#ffb9a4}
+.flag-symbol{width:70px;height:70px;border:1px solid #ffffff73;border-radius:21px;
+  background:linear-gradient(140deg,#ffffff25,#ffffff09);
+  box-shadow:0 0 0 5px #ffffff09,0 9px 28px #0005;font-size:41px;
+  animation:flag-levitate 5s ease-in-out infinite}
+@keyframes flag-levitate{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-5px) rotate(4deg)}}
+.actions{gap:9px}
+.btn{background:#ffffff;border:1px solid #dcece3;border-radius:15px;color:#143d32;
+  font-weight:900;letter-spacing:0;font-size:13px;padding:12px 17px;
+  box-shadow:0 3px 0 #0a151220;
+  transition:transform .2s cubic-bezier(.2,.7,.1,1.4),box-shadow .2s,background .2s,border-color .2s,filter .2s}
+.btn:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 10px 25px #0003;filter:saturate(1.16)}
+.btn:active:not(:disabled){transform:translateY(0) scale(.98)}
+.btn.primary{background:linear-gradient(125deg,#f04757,#ae1636);border-color:#ff6d76;color:white;
+  box-shadow:0 9px 28px #bf183633}
+.btn.green{background:linear-gradient(125deg,#19b77f,#087a57);border-color:#32dc9c;color:#fff;
+  box-shadow:0 8px 24px #0a7b5933}
+.btn.gold{background:linear-gradient(125deg,#ffe6a8,#ffc255);border-color:#fff3c8;color:#56300d}
+.btn.negative{background:linear-gradient(120deg,#585c68,#2c3542);border-color:#68717b;color:#fff}
+.btn.soft{background:#ffffff13;border-color:#ffffff39;color:#fff;backdrop-filter:blur(12px)}
+.btn.ghost{color:#eefff9;background:#ffffff09;border-color:#ffffff1b}
+.btn.outline-danger{background:#fff2f1;color:#a51c3b;border-color:#f5bfc8}
+.btn.big{font-size:18px;padding:17px 23px;border-radius:17px}
+.btn:focus-visible,.q-tile:focus-visible,.choose-team:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.hero{border-radius:30px;background:
+  radial-gradient(ellipse at 72% 24%,#f25e5350 0%,transparent 38%),
+  linear-gradient(119deg,#9d1235 0%,#ce2943 43%,#9b1938 73%,#560b29 100%);
+  box-shadow:0 25px 64px #070c1570,0 1px 0 #ffffff43 inset;
+  border:1px solid #ffb9b044;min-height:270px;isolation:isolate}
+.hero:before{width:640px;height:640px;border:1px solid #ffffff22;left:-140px;top:-380px;
+  box-shadow:0 0 0 42px #ffffff08,0 0 0 87px #ffffff06;animation:hero-rotate 38s linear infinite}
+.hero:after{width:640px;height:640px;right:-230px;bottom:-520px;border:1px dashed #ffe1ad46;opacity:.7}
+@keyframes hero-rotate{to{transform:rotate(360deg)}}
+.hero-inner{padding:28px clamp(20px,3.3vw,50px);gap:0;min-height:270px}
+.hero-inner>div:first-child{position:relative;z-index:2;flex:1;max-width:740px}
+.hero-sub{color:#ffe09b;letter-spacing:3px;font-size:12px;font-weight:950}
+.hero h2{font-size:clamp(34px,3.8vw,61px);margin:9px 0 8px;letter-spacing:0;color:#fff;text-shadow:0 7px 25px #45111e88}
+.hero p{font-size:clamp(13px,1.2vw,18px);color:#ffeff0;max-width:700px;font-weight:700;line-height:2}
+.hero .pill{background:#fffefa22;border:1px solid #fffac276;color:#fff9e8;
+  backdrop-filter:blur(5px);font-size:12px;font-weight:850;padding:9px 16px;
+  box-shadow:0 4px 16px #0002}
+.hero-visual{width:min(40%,500px);height:257px;position:relative;flex:0 0 auto;align-self:flex-end;overflow:visible}
+.hero-visual .hero-halo{position:absolute;inset:5px 20% auto;width:225px;height:225px;
+  border-radius:50%;background:radial-gradient(circle,#ffdb9c9c,#ffdb9c29 45%,transparent 68%);
+  animation:hero-halo 5s ease-in-out infinite}
+@keyframes hero-halo{50%{transform:scale(1.14);opacity:.7}}
+.hero-landscape{position:absolute;bottom:-28px;right:-28px;width:112%;height:100%;overflow:visible;
+  filter:drop-shadow(0 12px 15px #48112558)}
+.hero-landscape .mtn{animation:landscape-rise 6s ease-in-out infinite alternate}
+.hero-landscape .mtn.far{animation-delay:-3s}
+@keyframes landscape-rise{to{transform:translateY(-6px)}}
+.hero-icon{position:absolute;top:18px;right:21%;transform:rotate(-9deg);font-size:clamp(58px,6vw,100px);
+  line-height:1;filter:drop-shadow(0 13px 14px #0005);animation:hero-flag 5.5s ease-in-out infinite}
+@keyframes hero-flag{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-12px) rotate(7deg)}}
+.hero-sparkle{position:absolute;color:#ffdf96;font-size:35px;filter:drop-shadow(0 0 9px #f5af5c);animation:amb-spark 3s ease-in-out infinite}
+.hero-sparkle.first{top:12px;left:25%}.hero-sparkle.second{top:102px;right:6%;font-size:22px;animation-delay:-1.3s}
+.hero-sparkle.third{top:88px;left:15%;font-size:18px;animation-delay:-2.2s}
+.section-title{color:#fff;margin:22px 2px 16px;font-size:clamp(19px,1.6vw,26px)}
+.section-title small{color:#cee8dc;font-size:12px}
+.card{background:linear-gradient(160deg,#fff,#f5fcf8);border:1px solid #ffffff99;box-shadow:0 24px 65px #0004}
+.setup-layout{gap:19px;margin-top:22px;grid-template-columns:minmax(0,1.4fr) minmax(320px,.60fr)}
+.setup-card{padding:clamp(19px,2.6vw,35px);color:var(--ink);position:relative;overflow:hidden}
+.setup-card:before{content:"";position:absolute;inset:0 0 auto;height:7px;background:linear-gradient(to left,#d41f3d 0 33%,#fff 33% 66%,#079666 66%)}
+.setup-heading{font-size:clamp(24px,2vw,31px);color:#0b684e}
+.lead{color:#57776c;font-size:15px}
+.field-label{color:#204f42;margin:18px 0 9px}
+.count-bubble{background:linear-gradient(135deg,#eb3150,#a91738);color:#fff;box-shadow:0 8px 17px #dd274133}
+.range{accent-color:#bf1a3b;height:7px}
+.name-box{border:1.5px solid #d6e8dc;background:linear-gradient(120deg,#fff,#f3fbf6);
+  box-shadow:0 3px 11px #0552380b;transition:border-color .2s,box-shadow .2s,transform .2s}
+.name-box:focus-within{border-color:#0fb47a;box-shadow:0 0 0 4px #19b87c1d;transform:translateY(-1px)}
+.name-index{background:linear-gradient(135deg,#0e9d6c,#056e50);color:#fff;border-radius:11px}
+.name-box input{color:#123e34}
+.select{border:1.5px solid #d0e6d9;background:#fafffc;color:#184c3d;min-height:53px}
+.setup-note{position:relative;overflow:hidden;background:
+  radial-gradient(circle at 90% 4%,#38af8059,transparent 26%),
+  linear-gradient(142deg,#0f6556 0%,#09372f 100%);border:1px solid #ffffff40;
+  box-shadow:0 23px 44px #020b0844;color:#f0fff8;padding:25px;line-height:2}
+.setup-note:before{content:"";position:absolute;width:210px;height:210px;left:-115px;bottom:-130px;border:25px solid #ffffff12;border-radius:50%}
+.setup-note h3{color:#fff;font-size:24px}
+.setup-note .howto{position:relative;color:#effff9;font-size:14px;font-weight:600}
+.setup-note .howto li::marker{color:#ffcc78;font-weight:900}
+.setup-note .rule-icon{font-size:92px;margin:7px 0;filter:drop-shadow(0 14px 10px #0004);animation:trophy-float 4s ease-in-out infinite}
+@keyframes trophy-float{50%{transform:translateY(-10px) rotate(7deg)}}
+.note-badge{background:#ffe8b7;color:#82441b;border:1px solid #ffda8a}
+.setup-note p{color:#eefff7}
+.saved-hint{color:#7b9689;font-weight:800}
+.score-strip{gap:12px;margin:17px 0 23px;grid-template-columns:repeat(auto-fit,minmax(135px,1fr))}
+.team-score{background:linear-gradient(147deg,#fcfffc,#e9faf0 100%);border:1px solid #ffffffa8;
+  border-radius:18px;padding:13px 15px 17px;box-shadow:0 8px 25px #0003;
+  color:var(--ink);transition:transform .25s,box-shadow .25s;animation:card-enter .48s both}
+.team-score:hover{transform:translateY(-4px);box-shadow:0 14px 30px #0004}
+.team-score:before{width:6px;background:linear-gradient(#0cab71,#086d56)}
+.team-score:nth-child(3n+2){background:linear-gradient(150deg,#fffdfc,#fff1f2)}
+.team-score:nth-child(3n+2):before{background:linear-gradient(#ea3d59,#ab1938)}
+.team-score:nth-child(3n){background:linear-gradient(150deg,#fffefb,#fff6e6)}
+.team-score:nth-child(3n):before{background:linear-gradient(#f6b54b,#ba7c27)}
+.team-score.first{border-color:#ffdb84;background:linear-gradient(145deg,#fff6d7,#fffefa);
+  box-shadow:0 6px 0 #ffcb6a22,0 12px 27px #0003}
+.team-score.first:before{background:linear-gradient(#ffe6a3,#d79419)}
+.team-score .tname{font-size:12px;min-height:36px;color:#31584c;position:relative;z-index:1}
+.team-score .team-n{color:#ba2943}
+.team-score .tscore{font-size:clamp(24px,2.6vw,33px);color:#075943;font-weight:950;position:relative;z-index:1}
+.team-score .tscore small{font-size:11px;color:#65796d}
+.team-score .score-meter{height:5px;border-radius:10px;background:#dcece2;display:block;margin-top:9px;overflow:hidden}
+.team-score .score-meter i{display:block;height:100%;border-radius:10px;width:var(--score-width,0%);
+  background:linear-gradient(90deg,#e8465c,#f4ca67,#13a673);transition:width .6s}
+.board-stats{gap:10px;margin:20px 0 12px}
+.stat-pill{color:#ffffff;font-size:13px;font-weight:850;border:1px solid #ffffff2e;
+  background:linear-gradient(130deg,#ffffff22,#ffffff0a);box-shadow:0 5px 15px #0002;
+  backdrop-filter:blur(8px);padding:10px 16px}
+.stat-pill b{font-size:18px;color:#ffe092}
+.progress{background:#ffffff25;height:13px;box-shadow:0 1px 4px #0004 inset}
+.progress>span{background:linear-gradient(90deg,#ce2340 0%,#ffdf90 53%,#10a47a 100%);
+  background-size:180% 100%;animation:progress-gleam 6s linear infinite;transition:width .55s}
+@keyframes progress-gleam{to{background-position:180% 0}}
+.board-grid{gap:14px}
+.category-card{--accent:#c91e3e;--deep:#6b122f;--tint:#fff0f2;
+  padding:11px;border:1px solid #ffffffa8;background:linear-gradient(180deg,#ffffff 0%,#f3faf6 100%);
+  box-shadow:0 15px 32px #0003;border-radius:22px;min-width:0;
+  transition:transform .25s cubic-bezier(.19,.73,.23,1.35),box-shadow .25s;
+  animation:card-enter .48s both}
+.category-card:nth-child(2){animation-delay:.07s}.category-card:nth-child(3){animation-delay:.14s}
+.category-card:nth-child(4){animation-delay:.21s}.category-card:nth-child(5){animation-delay:.28s}
+.category-card:nth-child(6){animation-delay:.35s}
+.category-card.green{--accent:#0c9668;--deep:#07513d;--tint:#e8fff2}
+.category-card.gold{--accent:#bd7b25;--deep:#7c4b19;--tint:#fff5dd}
+.category-card:hover{transform:translateY(-6px);box-shadow:0 21px 38px #0005}
+.category-banner,.category-banner.green,.category-banner.gold{
+  position:relative;isolation:isolate;overflow:hidden;border-radius:15px;min-height:142px;
+  background:linear-gradient(135deg,var(--accent),var(--deep));margin-bottom:11px;color:white;
+  border:1px solid #ffffff40;box-shadow:0 8px 20px #071e1b22}
+.category-banner:before{content:"";position:absolute;inset:-70px -30px auto auto;width:180px;height:180px;
+  border:25px solid #ffffff10;border-radius:50%;z-index:-1;animation:amb-spin 28s linear infinite}
+.category-banner:after{content:"";position:absolute;inset:auto -6px -25px auto;width:110px;height:95px;
+  border:1px dashed #fff8;transform:rotate(30deg);border-radius:28px;z-index:-1}
+.category-banner .emoji{font-size:37px;line-height:1.2;filter:drop-shadow(0 8px 9px #0004);
+  animation:category-float 3.5s ease-in-out infinite}
+@keyframes category-float{50%{transform:translateY(-5px) rotate(9deg)}}
+.category-card:nth-child(even) .category-banner .emoji{animation-delay:-1.7s}
+.category-banner h3,.category-banner.green h3,.category-banner.gold h3{
+  font-size:clamp(15px,1.29vw,22px);line-height:1.35;margin:6px 0 2px;color:#fff;text-shadow:0 3px 6px #0005}
+.category-banner p{color:#fff4df;font-weight:750;line-height:1.65;font-size:10px}
+.question-tiles{gap:7px}
+.q-tile,.category-card.green .q-tile,.category-card.gold .q-tile{
+  position:relative;isolation:isolate;background:linear-gradient(165deg,#fff,var(--tint));
+  border:1.5px solid color-mix(in srgb,var(--accent),#fff 62%);color:var(--accent);
+  border-radius:12px;height:55px;font-size:23px;font-weight:950;
+  box-shadow:0 3px 0 color-mix(in srgb,var(--accent),#fff 83%);
+  transition:transform .18s cubic-bezier(.2,.9,.2,1.4),box-shadow .18s,background .18s,color .18s,border-color .18s}
+.q-tile:before{content:"";position:absolute;inset:0;border-radius:10px;
+  background:linear-gradient(135deg,#fff8,transparent 46%);pointer-events:none}
+.q-tile:hover:not(:disabled),.category-card.green .q-tile:hover:not(:disabled),.category-card.gold .q-tile:hover:not(:disabled){
+  background:linear-gradient(145deg,var(--accent),var(--deep));border-color:var(--accent);
+  box-shadow:0 10px 18px color-mix(in srgb,var(--accent),transparent 68%);color:#fff;
+  transform:translateY(-4px) scale(1.045)}
+.q-tile:active:not(:disabled){transform:translateY(0) scale(.98)}
+.q-tile.used,.category-card.green .q-tile.used,.category-card.gold .q-tile.used,
+.q-tile.used:hover,.category-card.green .q-tile.used:hover,.category-card.gold .q-tile.used:hover{
+  background:linear-gradient(155deg,#e9eceb,#d3d8d6);border-color:#c4cdca;color:#788580;
+  box-shadow:inset 0 2px 6px #8b98991f;opacity:1;transform:none;filter:saturate(0)}
+.q-tile.used:after{color:#63786e;top:3px;left:7px;font-weight:950}
+.resume{background:linear-gradient(125deg,#fff7e8,#fff1cb);color:#6b3f20;border:1px solid #ffd391;
+  box-shadow:0 8px 26px #0002;border-radius:18px}
+.stage{background:
+  radial-gradient(ellipse at 50% 6%,#2389757a 0%,transparent 50%),
+  radial-gradient(circle at 91% 78%,#b3183866 0%,transparent 35%),
+  linear-gradient(145deg,#0c5b4c 0%,#073e37 39%,#082a2d 80%,#10353d 100%);
+  border:1px solid #46b99373;border-radius:31px;
+  box-shadow:0 26px 75px #0007,0 1px 0 #ffffff35 inset;min-height:620px;
+  padding:clamp(22px,3vw,44px);animation:scene-enter .45s both;isolation:isolate}
+.stage:before{opacity:.16;background-image:radial-gradient(circle,#fff 1px,transparent 1.5px);
+  background-size:30px 30px;mask-image:linear-gradient(180deg,#000,transparent 80%)}
+.stage:after{content:"";position:absolute;pointer-events:none;inset:auto -75px -175px auto;
+  width:450px;height:450px;border:1px solid #ffffff22;border-radius:50%;z-index:0;
+  box-shadow:0 0 0 47px #ffffff08,0 0 0 94px #ffffff06;animation:hero-rotate 42s linear infinite}
+.stage-top{gap:15px}.stage-chip{background:#ffffff1a;border:1px solid #ffffff60;
+  backdrop-filter:blur(6px);color:#fff;box-shadow:0 6px 17px #0002;font-weight:900}
+.stage-team{background:linear-gradient(130deg,#ffe6aa,#ffbf55);color:#614019;
+  border:1px solid #fff6d2;box-shadow:0 5px 20px #ffce6540}
+.stage-body{margin-top:20px}
+.stage-overline{color:#ffda8d;letter-spacing:1px;font-size:14px}
+.stage-question{max-width:1080px;font-size:clamp(31px,3.35vw,55px);font-weight:950;
+  line-height:1.8;margin:15px auto 14px;text-shadow:0 8px 16px #0004;animation:question-enter .5s ease-out both}
+.visual-clue{display:inline-block;font-size:clamp(63px,7vw,120px);filter:drop-shadow(0 10px 20px #0006);
+  animation:category-float 4s ease-in-out infinite}
+.hint{color:#f2e3aa;font-size:16px}
+.stage-status{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:clamp(15px,1.7vw,20px);color:#faffff;
+  padding:12px 19px;border:1px solid #ffffff2c;border-radius:100px;
+  background:#ffffff0e;box-shadow:0 8px 20px #0002;margin:13px auto 8px}
+.timer-wrap{margin:22px 0 18px;perspective:800px}
+.timer-circle{width:clamp(168px,18vw,220px);height:clamp(168px,18vw,220px);
+  border-radius:50%;filter:drop-shadow(0 15px 26px #0006);isolation:isolate}
+.timer-circle:before{content:"";position:absolute;inset:-13px;border-radius:50%;z-index:-1;
+  border:2px solid #fbd69b77;box-shadow:0 0 0 8px #ffffff09,0 0 45px #edc16b50;
+  animation:timer-breath 4s ease-in-out infinite}
+.timer-circle:after{content:"";position:absolute;inset:10px;z-index:-1;border-radius:50%;
+  background:radial-gradient(circle at 48% 38%,#115f4e,#082f2d 64%,#041e26 100%);
+  border:1px solid #ffffff30;box-shadow:inset 0 0 35px #05251e,0 10px 36px #0004}
+.timer-circle svg{position:relative;z-index:1;overflow:visible;transform:rotate(-90deg)}
+.timer-circle .track{stroke:#ffffff24;stroke-width:8}
+.timer-circle .timer-ticks{stroke:#f7d5a850;stroke-width:2;fill:none;stroke-dasharray:1 7.8}
+.timer-circle .bar{stroke:#ffce7a;stroke-width:10;stroke-linecap:round;
+  filter:drop-shadow(0 0 5px #ffd18c)}
+.timer-circle .inner-ring{stroke:#ffffff20;stroke-width:1.5;fill:none;stroke-dasharray:3 7}
+.timer-rotor{position:absolute;inset:-24px;border:1px dashed #e2cb8c66;border-radius:50%;
+  animation:amb-spin 30s linear infinite;pointer-events:none}
+.timer-rotor:after{content:"✦";position:absolute;top:-10px;left:48%;font-size:17px;color:#ffdfaa}
+.timer-digit{z-index:2;color:#fff;text-shadow:0 6px 12px #0007}
+.timer-digit strong{font-size:clamp(52px,6vw,72px);letter-spacing:-2px;font-weight:950;
+  font-variant-numeric:tabular-nums;line-height:1.3}
+.timer-digit span{font-size:14px;color:#ffe4ab;font-weight:900}
+.timer-circle.danger:before{border-color:#ff5e77;box-shadow:0 0 0 9px #cf163729,0 0 50px #ff1d5480;
+  animation:timer-danger .73s ease-in-out infinite alternate}
+.timer-circle.danger .bar{stroke:#ff4b68;filter:drop-shadow(0 0 6px #ff4b68)}
+.timer-circle.danger .timer-digit strong{color:#ffb7c4}
+@keyframes timer-breath{50%{box-shadow:0 0 0 14px #ffffff0c,0 0 65px #edc16b7b}}
+@keyframes timer-danger{to{transform:scale(1.055);opacity:.55}}
+.expired-banner{background:linear-gradient(125deg,#fff5e1,#ffd3d9);color:#9b1837;
+  box-shadow:0 0 0 6px #ff435927,0 11px 28px #0005;
+  border:2px solid #fff;border-radius:18px;animation:expired-pop .45s both}
+@keyframes expired-pop{0%{transform:scale(.8);opacity:0}75%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+.stage-foot{margin-top:28px;gap:11px}
+.stage .btn{border-color:#ffffff55}
+.stage .btn.green{background:linear-gradient(125deg,#21be85,#068658);border-color:#72e9b3}
+.stage .btn.negative{background:linear-gradient(125deg,#64717a,#303846)}
+.stage .btn.ghost{background:#ffffff12;color:#fff;border-color:#ffffff30}
+.answer-box{background:linear-gradient(153deg,#fff,#f0fff8 84%);color:#0f5743;
+  border:2px solid #ffcf76;box-shadow:0 0 0 7px #f4c96e1d,0 23px 55px #0004;
+  padding:clamp(20px,2.6vw,31px);animation:answer-reveal .5s cubic-bezier(.18,.74,.25,1.1) both}
+.answer-box small{font-size:15px;color:#9a6121}
+.answer-box .answer-value{color:#087454;font-weight:950;line-height:1.7;text-wrap:balance}
+.answer-box p{color:#526c60;font-size:15px}
+.answer-box .source-link{color:#ba1d3b}
+@keyframes answer-reveal{0%{opacity:0;transform:translateY(20px) scale(.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.judge-title{font-size:clamp(16px,1.8vw,23px);color:#ffedc0}
+.winner-stage{background:radial-gradient(ellipse at 50% 10%,#d49d4960,transparent 44%),
+  linear-gradient(128deg,#064d3d,#072b2a 57%,#641e34 105%)}
+.winner-stage .trophy{font-size:110px;filter:drop-shadow(0 17px 18px #0007);
+  animation:trophy-win 2.5s ease-in-out infinite}
+@keyframes trophy-win{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(5deg) translateY(-15px)}}
+.winner-item{background:linear-gradient(135deg,#ffffff24,#ffffff0b);border:1px solid #ffffff4c;
+  box-shadow:inset 0 1px 0 #ffffff31,0 10px 20px #0002;
+  backdrop-filter:blur(8px);animation:card-enter .5s both}
+.winner-item:nth-child(1){border-color:#ffe4a0;background:linear-gradient(130deg,#f4b95f66,#ffffff18)}
+.winner-item:nth-child(2){animation-delay:.06s}.winner-item:nth-child(3){animation-delay:.12s}
+.winner-item .points{color:#ffe2a4}
+.results-badge{background:#ffffff20;border:1px solid #ffe0a184;box-shadow:0 8px 18px #0004}
+.modal-backdrop{background:#051b22c9;backdrop-filter:blur(14px);animation:overlay-in .22s ease-out both}
+.modal-card{color:#143b30;background:linear-gradient(140deg,#fff,#f3fff8);
+  border:2px solid #fff;border-radius:29px;box-shadow:0 42px 100px #0009;
+  animation:modal-pop .35s cubic-bezier(.17,.85,.28,1.1) both}
+.modal-head h2{color:#0a5a46}
+.modal-head p{color:#66796d}
+.x-button{border-color:#d5e6dc;color:#a12d43}
+.choose-grid{gap:11px}
+.choose-team{border:1.5px solid #d5e7dc;background:linear-gradient(135deg,#fff,#f3fbf5);
+  border-radius:17px;min-height:65px;transition:transform .18s,border-color .18s,box-shadow .18s,background .18s}
+.choose-team:nth-child(3n+2){background:linear-gradient(125deg,#fff,#fff3f4)}
+.choose-team:nth-child(3n){background:linear-gradient(125deg,#fff,#fff7e6)}
+.choose-team:hover{transform:translateY(-3px);border-color:#12a97a;
+  background:linear-gradient(125deg,#e9fff1,#fff);box-shadow:0 11px 22px #12553b24}
+.choose-team .mini-circle{width:36px;height:36px;border-radius:12px;
+  background:linear-gradient(125deg,#14a874,#065b4a);color:#fff;font-weight:950}
+.modal-card .saved-hint{color:#6c8578}
+@keyframes overlay-in{from{opacity:0}to{opacity:1}}
+@keyframes modal-pop{from{transform:translateY(25px) scale(.96);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+@keyframes scene-enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes question-enter{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+@keyframes card-enter{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+.footer{color:#d7e7dd;border-top:1px solid #ffffff1b;margin-top:22px}
+.footer b{color:#ffce95}
+.toast{background:linear-gradient(130deg,#166c54,#054e40);border:1px solid #65dcb0;
+  border-radius:15px;box-shadow:0 15px 42px #0009;color:#fff}
+.confetti i{box-shadow:0 1px 4px #0004}
+@media (max-width:1420px){
+ .category-banner,.category-banner.green,.category-banner.gold{min-height:120px}
+ .hero-visual{width:35%}
+}
+@media (max-width:840px){
+ .masthead{align-items:flex-start}
+ .hero-inner{padding:24px}
+ .hero-visual{width:34%;height:215px}
+ .hero-landscape{bottom:-24px;right:-32px}
+ .hero-icon{font-size:58px}
+ .setup-layout{grid-template-columns:1fr}
+ .setup-note .rule-icon{font-size:70px}
+ .category-banner,.category-banner.green,.category-banner.gold{min-height:116px}
+ .stage{padding:23px 17px;min-height:565px}
+ .team-score .score-meter{height:4px}
+}
+@media (max-width:540px){
+ #app{padding:14px 12px 32px}
+ .masthead{gap:12px;margin-top:4px}
+ .brand h1{font-size:21px}
+ .flag-symbol{width:54px;height:54px;font-size:31px}
+ .brand .eyebrow{font-size:9px;letter-spacing:1px}
+ .masthead .actions{width:100%;justify-content:flex-start;gap:7px}
+ .masthead .actions .btn{font-size:11px;padding:9px 11px}
+ .hero{min-height:220px;border-radius:23px}
+ .hero-inner{min-height:220px;padding:21px 18px}
+ .hero-inner>div:first-child{max-width:100%;width:100%}
+ .hero h2{font-size:31px}
+ .hero p{font-size:12px}
+ .hero-sub{font-size:10px;letter-spacing:1.2px}
+ .hero .pill{font-size:10px;padding:7px 10px}
+ .hero-visual{position:absolute;width:63%;height:170px;bottom:0;left:-18%;opacity:.23;pointer-events:none}
+ .hero-icon{font-size:49px}
+ .score-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .team-score{padding:10px 12px 13px}
+ .team-score .tscore{font-size:25px}
+ .board-stats{gap:7px}
+ .stat-pill{font-size:11px;padding:7px 10px}
+ .stat-pill b{font-size:14px}
+ .progress{flex-basis:100%;height:10px}
+ .board-grid{gap:9px}
+ .category-card{padding:7px;border-radius:17px}
+ .category-banner,.category-banner.green,.category-banner.gold{min-height:115px;padding:9px 4px;border-radius:11px}
+ .category-banner h3{font-size:14px;line-height:1.4}
+ .category-banner .emoji{font-size:28px}
+ .category-banner p{font-size:9px}
+ .question-tiles{gap:5px}
+ .q-tile,.category-card.green .q-tile,.category-card.gold .q-tile{height:44px;font-size:19px;border-radius:9px}
+ .setup-card{padding:20px 15px}
+ .setup-note{padding:21px}
+ .setup-row{grid-template-columns:1fr 1fr}
+ .stage-question{font-size:clamp(24px,6.1vw,33px)}
+ .stage{border-radius:23px;min-height:560px}
+ .stage-status{font-size:13px;line-height:1.7;border-radius:16px}
+ .timer-circle{width:166px;height:166px}
+ .timer-digit strong{font-size:49px}
+ .timer-rotor{inset:-14px}
+ .stage-foot{gap:9px}
+ .stage-foot .btn{width:100%;font-size:14px}
+ .answer-box{padding:19px 14px}
+ .answer-box .answer-value{font-size:clamp(25px,6vw,36px)}
+ .modal-card{padding:19px}
+ .choose-grid{grid-template-columns:1fr}
+ .footer{justify-content:center;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+@media print{
+ body{color:#163e35;background:white}
+ .scene-ambient{display:none}
+ .category-card,.team-score,.setup-card{box-shadow:none}
+}
+
+  
+/* 2026 National Day MC edition: ranked cards, accuracy donuts, four-choice question stage */
+.board-compact .hero{min-height:159px}.board-compact .hero-inner{min-height:159px;padding:17px 32px}.board-compact .hero h2{font-size:clamp(27px,3vw,42px);margin:3px 0}.board-compact .hero p{font-size:13px;line-height:1.7}.board-compact .hero-visual{height:153px;width:26%}.board-compact .hero-icon{font-size:65px;top:1px}.board-compact .hero .pill{margin-top:6px;padding:5px 11px}.board-compact .hero-sub{font-size:10px}
+@media(max-width:620px){.board-compact .hero-inner{padding:17px 20px}.board-compact .hero{min-height:143px}.board-compact .hero-inner{min-height:143px}.board-compact .hero-visual{width:30%;height:125px}.board-compact .hero h2{font-size:28px}.board-compact .hero p{font-size:12px}}
+
+.rank-dashboard{background:linear-gradient(140deg,#0a4739 0%,#10664b 54%,#104b42 100%);border:1px solid #ffffff52;border-radius:25px;padding:20px 21px 22px;margin:14px 0 24px;box-shadow:0 19px 34px #001c1940;position:relative;overflow:hidden;isolation:isolate}
+.rank-dashboard:before{content:"";position:absolute;z-index:-1;left:-90px;top:-140px;width:360px;height:360px;border-radius:50%;border:32px solid #ffffff08;animation:amb-spin 30s linear infinite}
+.rank-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:15px}.rank-head h2{font-size:clamp(21px,2vw,30px);margin:0;color:#fff}.rank-head small{font-size:12px;color:#c4e5d8;font-weight:700}.leader-notice{display:flex;gap:12px;align-items:center;border-radius:18px;background:linear-gradient(105deg,#fff2c6,#ffd981);border:2px solid #ffeabd;padding:10px 18px;color:#5a3511;font-weight:900;box-shadow:0 7px 18px #0003}.leader-notice .gift{font-size:clamp(31px,3vw,44px);display:inline-block;filter:drop-shadow(0 4px 5px #65451933);animation:gift-float 2.8s ease-in-out infinite}@keyframes gift-float{50%{transform:translateY(-7px) rotate(8deg)}}
+.rank-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(235px,100%),1fr));gap:12px}.rank-card{display:flex;align-items:center;gap:11px;padding:12px 13px;border:1px solid #ffffff4b;border-radius:19px;background:linear-gradient(125deg,#fffffffa,#eaf8f1);box-shadow:0 10px 22px #0002;min-width:0;position:relative;overflow:hidden;color:#113e33;animation:card-enter .4s both}
+.rank-card.is-leader{border:2px solid #ffcb66;background:linear-gradient(125deg,#fff8dc,#fffaf1);box-shadow:0 0 0 3px #fff1b027,0 11px 23px #0004}.rank-card .rank-flag{position:absolute;left:-15px;top:-18px;font-size:52px;opacity:.11;transform:rotate(-18deg)}.rank-pos{display:flex;flex-direction:column;align-items:center;gap:1px;min-width:27px;font-size:24px;font-weight:1000}.rank-pos span{font-size:12px;color:#637c72}.rank-donut{--accuracy:0;--ring:#15a779;width:73px;height:73px;flex:0 0 73px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--ring) calc(var(--accuracy)*1%),#d9e8df 0);position:relative;box-shadow:0 4px 8px #0001 inset;direction:ltr}.rank-donut:before{content:"";position:absolute;inset:8px;border-radius:50%;background:#f9fffa}.rank-donut span{position:relative;z-index:1;font-size:17px;font-weight:1000;color:#104b3b;direction:rtl}.rank-info{flex:1;min-width:0}.rank-name{font-size:clamp(13px,1.12vw,17px);font-weight:1000;line-height:1.55;overflow-wrap:anywhere}.rank-attempts{color:#5b776c;font-size:12px;font-weight:800;margin:0 0 4px}.rank-score{display:flex;justify-content:space-between;align-items:baseline;gap:6px;font-weight:1000;color:#0a7953;font-size:24px;line-height:1.2}.rank-score small{font-size:11px;color:#5d786c}.rank-bar{height:7px;border-radius:20px;background:#dce9e0;overflow:hidden;margin-top:7px}.rank-bar i{display:block;height:100%;width:var(--score-width,0%);border-radius:20px;background:linear-gradient(90deg,#dc2843,#f3b44b,#0ba878);transition:width .4s}
+.team-score .attempt-line{display:block;font-size:13px;color:#4c7868;font-weight:900;margin:3px 0}.team-score .attempt-line b{color:#af2840}.team-score .score-meter{margin-top:6px}.team-score .top-gift{position:absolute;left:11px;top:4px;font-size:22px;animation:gift-float 3s ease-in-out infinite}
+.choice-panel{width:min(1120px,100%);margin:12px auto 0}.choice-caption{color:#ffe1b1;text-align:center;font-weight:850;font-size:14px;margin:7px 0 14px}.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;direction:rtl}.choice-btn{display:flex;align-items:center;gap:14px;padding:18px 17px;min-height:92px;text-align:right;border-radius:20px;border:2px solid #ffffff6a;background:linear-gradient(135deg,#fefcf7,#e9f8ee);color:#144939;box-shadow:0 10px 22px #0003;font-size:clamp(15px,1.45vw,20px);font-weight:950;line-height:1.7;transition:transform .2s,box-shadow .2s,background .2s}.choice-btn:hover:not(:disabled){transform:translateY(-4px);box-shadow:0 16px 27px #0005;border-color:#ffdf87;background:#fff7d8}.choice-btn:focus-visible{outline:4px solid #ffd580;outline-offset:3px}.choice-btn:disabled{cursor:default;opacity:1}.choice-letter{flex:0 0 40px;width:40px;height:40px;border-radius:12px;background:linear-gradient(140deg,#c82343,#862039);color:#fff;display:grid;place-items:center;font-size:20px;font-weight:1000;box-shadow:0 5px 12px #0002}.choice-txt{flex:1;overflow-wrap:anywhere}.choice-btn.is-correct{background:linear-gradient(145deg,#dfffe8,#93e6b3);border-color:#31d889;color:#075536;box-shadow:0 0 0 3px #38e49155,0 14px 25px #0003}.choice-btn.is-wrong{background:linear-gradient(145deg,#ffe6e9,#ffadb5);border-color:#f16477;color:#8e1736}.choice-btn.is-correct .choice-letter{background:#0b8255}.choice-btn.is-wrong .choice-letter{background:#aa1238}.choice-check{font-size:23px;flex:0 0 26px}
+.stage.mc-stage{padding-top:17px;padding-bottom:21px}.mc-stage .stage-body{margin-top:9px}.mc-stage .stage-question{font-size:clamp(23px,2.65vw,43px);line-height:1.6;margin:10px auto 13px;max-width:1150px}.mc-stage .timer-wrap{margin:4px 0 8px}.mc-stage .timer-circle{width:clamp(108px,10.5vw,146px);height:clamp(108px,10.5vw,146px)}.mc-stage .timer-digit strong{font-size:clamp(36px,4.6vw,51px)}.mc-stage .timer-digit span{font-size:11px}.mc-stage .timer-rotor{inset:-12px}.mc-stage .stage-foot{margin-top:16px}.mc-stage .visual-clue{margin:6px auto;font-size:clamp(30px,4.4vw,53px)}
+.mc-result{border-radius:20px;margin:18px auto 0;padding:16px 20px;max-width:1000px;background:#ffffff17;border:1px solid #ffffff6b;text-align:center}.mc-result.good{border:2px solid #6decaf;background:#064d39cc}.mc-result.bad{border:2px solid #ff8298;background:#681d30cc}.mc-result h3{font-size:clamp(22px,2.5vw,34px);margin:2px 0 9px;color:#fff}.mc-result p{color:#fff6e5;font-size:15px;line-height:1.85;margin:7px 0}.mc-result .source-link{color:#fff3bf}.mc-result .chosen-description{color:#fee6a6;font-size:13px;font-weight:900}.mc-result .points-note{font-size:18px;font-weight:950;color:#fff3bc}
+@media(max-width:930px){.rank-list{grid-template-columns:repeat(2,minmax(0,1fr))}.choice-btn{min-height:81px;padding:12px;gap:10px}}
+@media(max-width:620px){.rank-dashboard{padding:14px 12px}.rank-list{grid-template-columns:1fr}.rank-card{padding:10px 12px}.choice-grid{grid-template-columns:1fr;gap:9px}.choice-btn{min-height:67px;padding:10px 12px;font-size:15px}.choice-letter{width:35px;height:35px;flex-basis:35px;font-size:17px}.mc-stage .timer-circle{width:112px;height:112px}.mc-stage .timer-digit strong{font-size:38px}.mc-stage .stage-question{font-size:clamp(21px,5vw,29px)}.leader-notice{width:100%}}
+@media(prefers-reduced-motion:reduce){.leader-notice .gift,.team-score .top-gift,.rank-dashboard:before{animation:none!important}}
+
+
+/* Oman heritage motion and dramatic live podium — motion gracefully disabled if requested */
+:root{--om-red:#d52d45;--om-green:#07895d;--om-white:#fffdf8;--om-gold:#ffd67c}
+.masthead{position:relative;z-index:4}.brand{position:relative}.flag-symbol{animation:oman-flag-hover 4.3s ease-in-out infinite;position:relative;isolation:isolate}
+.flag-symbol:after{content:'✦';position:absolute;right:-7px;top:-5px;color:#ffca65;font-size:20px;animation:oman-star 3.2s infinite ease-in-out}
+@keyframes oman-flag-hover{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-5px) rotate(5deg)}}
+@keyframes oman-star{50%{transform:rotate(30deg) scale(1.35);opacity:.55}}
+.mystery-nav{border:2px solid #ffeaa6!important;background:linear-gradient(115deg,#e4a232,#ffd87e 44%,#e3a135)!important;color:#4c260e!important;box-shadow:0 0 0 3px #f9d97926,0 10px 24px #e7ae432d!important;position:relative;overflow:hidden;font-weight:1000}
+.mystery-nav:before{content:'';position:absolute;inset:-30% auto -30% -80%;width:38%;background:linear-gradient(90deg,transparent,#ffffffa8,transparent);transform:skewX(-25deg);animation:nav-shine 4.2s infinite}
+.mystery-nav .box-emblem{display:inline-block;animation:box-pop 2s ease-in-out infinite;font-size:21px}
+.mystery-nav:disabled{opacity:.6;filter:grayscale(.5)}
+@keyframes nav-shine{0%,32%{left:-60%}65%,100%{left:150%}}@keyframes box-pop{50%{transform:translateY(-4px) rotate(7deg)}}
+.oman-heritage-band{display:flex;align-items:center;justify-content:space-around;gap:10px;min-height:36px;margin:7px 0 15px;padding:4px 12px;border:1px solid #fff5d349;border-radius:100px;background:linear-gradient(90deg,#ad1940a0,#027356ad,#b71b3c88);overflow:hidden;box-shadow:0 5px 17px #0002;position:relative}
+.oman-heritage-band:before{content:'';position:absolute;inset:0;opacity:.27;background:repeating-linear-gradient(45deg,transparent 0 17px,#fff9e7 18px 19px,transparent 20px 33px);background-size:48px 48px;animation:pattern-walk 13s linear infinite}
+@keyframes pattern-walk{to{background-position:280px 0}}
+.heritage-symbol{position:relative;font-size:clamp(16px,1.4vw,23px);filter:drop-shadow(0 3px 5px #0004);animation:heritage-hop 4s ease-in-out infinite}.heritage-symbol:nth-child(even){animation-delay:-2s}
+@keyframes heritage-hop{50%{transform:translateY(-4px) rotate(8deg)}}
+.heritage-word{font-size:clamp(10px,1.2vw,14px);font-weight:1000;color:#fff8e8;position:relative;white-space:nowrap;letter-spacing:1px}
+.rank-dashboard{background:radial-gradient(circle at 12% 2%,#237b5c 0%,transparent 37%),linear-gradient(125deg,#073b35,#0d684c 55%,#09463c);border:1px solid #f6dd9470;box-shadow:0 19px 40px #051c1d80}
+.rank-dashboard:after{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;opacity:.075;background:repeating-conic-gradient(from 45deg at 22px 22px,#fff 0deg 45deg,transparent 45deg 90deg);background-size:44px 44px;mask-image:linear-gradient(90deg,#000,transparent 65%)}
+.rank-head h2{letter-spacing:.1px;text-shadow:0 4px 18px #0006}
+.rank-list{position:relative}.rank-card{transition:transform .48s cubic-bezier(.2,.9,.2,1),box-shadow .38s;animation:rank-entrance .65s cubic-bezier(.17,.86,.34,1.1) both;animation-delay:calc(var(--rank-index,0)*75ms)}
+@keyframes rank-entrance{0%{transform:translateY(23px) scale(.93);opacity:0}100%{transform:translateY(0) scale(1);opacity:1}}
+.rank-card.is-leader{border:2px solid #ffd06b;background:linear-gradient(137deg,#fff6ce,#fffcf0 68%,#fff5df);animation:rank-entrance .65s both,leader-breathe 3s ease-in-out infinite 1s}
+@keyframes leader-breathe{50%{box-shadow:0 0 0 5px #ffe3953f,0 14px 27px #0004}}
+.rank-card.is-leader:after{content:'✦  ✧  ✦';font-size:17px;color:#d69c27;position:absolute;top:0;left:45%;letter-spacing:8px;animation:leader-twinkle 2.9s infinite ease-in-out;pointer-events:none}
+@keyframes leader-twinkle{50%{transform:translateY(6px) rotate(4deg);opacity:.4}}
+.rank-pos{filter:drop-shadow(0 3px 3px #0002)}
+.rank-card.rank-climb{outline:3px solid #8de4b294;outline-offset:-3px}.rank-rise{font-size:10px;border-radius:20px;background:#dff7e4;color:#027b42;padding:3px 8px;font-weight:1000;display:inline-block;margin-top:3px;animation:rise-glow 1.5s ease-in-out infinite alternate}
+@keyframes rise-glow{to{filter:brightness(1.08);transform:translateY(-2px)}}
+.rank-score{font-variant-numeric:tabular-nums}.rank-card.just-scored .rank-score{animation:score-pop 1.2s ease-out 1}
+@keyframes score-pop{20%{transform:scale(1.17);color:#ca2340}65%{transform:scale(1.03)}100%{transform:scale(1)}}
+.rank-score .mystery-awards{margin-inline-start:auto;font-size:11px;color:#99441c;font-weight:1000;border-radius:25px;background:#ffdf95;padding:3px 8px;white-space:nowrap;box-shadow:0 3px 9px #f3c96866}
+.leader-notice{animation:notice-appear .55s both;position:relative;overflow:hidden}.leader-notice:before{content:'';position:absolute;inset:0 auto 0 -35%;width:18%;background:linear-gradient(90deg,transparent,#ffffff8c,transparent);transform:skewX(-20deg);animation:notice-sweep 5s infinite}
+@keyframes notice-appear{from{transform:scale(.89);opacity:0}to{transform:scale(1);opacity:1}}@keyframes notice-sweep{0%,50%{left:-35%}84%,100%{left:125%}}
+/* Bonus panel: not part of 60 questions */
+.mystery-panel{position:relative;overflow:hidden;margin:10px 0 19px;border:1px solid #f3d498bd;border-radius:23px;background:linear-gradient(111deg,#7e1935 0%,#ba2745 35%,#0d7954 94%);color:#fff;box-shadow:0 15px 28px #10091e46;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:17px clamp(15px,2vw,28px)}
+.mystery-panel:before{content:'';position:absolute;inset:0;opacity:.17;background:repeating-conic-gradient(from 45deg at 35px 35px,#ffe7ac 0 25%,transparent 0 50%) 0 0/70px 70px;animation:pattern-walk 20s linear infinite}
+.mystery-panel h3{position:relative;font-size:clamp(19px,2vw,28px);margin:0 0 4px;color:#fff}.mystery-panel p{position:relative;color:#fdf0d8;margin:0;font-size:13px;line-height:1.65;font-weight:800}.mystery-panel .mystery-stats{position:relative;font-size:12px;color:#ffe6aa;margin-top:7px;font-weight:900}
+.mystery-panel .btn{min-width:175px;flex:0 0 auto;position:relative;background:linear-gradient(105deg,#ffefb1,#f8ba50);border:2px solid #fff1d0;color:#662818;box-shadow:0 8px 18px #250c287a;font-size:17px;padding:14px 17px}
+.mystery-card{padding:22px 19px;border:2px solid #f6d58c;background:radial-gradient(circle at 50% 0%,#ffe5a4 0%,#fff6df 45%,#fffdf7 100%);color:#563219;text-align:center;border-radius:26px;box-shadow:0 20px 45px #15050d2d;position:relative;overflow:hidden;animation:mystery-reveal .8s cubic-bezier(.13,.83,.3,1.2) both}
+.mystery-card:before{content:'✦   ✦   ✦';position:absolute;top:5%;left:5%;font-size:34px;color:#e8aa448c;letter-spacing:34px;transform:rotate(-9deg);pointer-events:none;animation:stars-drift 5s ease-in-out infinite}
+@keyframes mystery-reveal{from{opacity:0;transform:translateY(35px) rotateY(85deg) scale(.83)}to{opacity:1;transform:translateY(0) rotateY(0) scale(1)}}@keyframes stars-drift{50%{transform:translateY(16px) rotate(4deg);opacity:.5}}
+.mystery-card .present-icon{display:block;font-size:clamp(83px,12vw,145px);filter:drop-shadow(0 12px 12px #bd8e3935);animation:gift-float 2.8s ease-in-out infinite}.mystery-card h3{font-size:clamp(23px,3vw,38px);margin:5px;color:#8e2040}.mystery-card .challenge-title{font-size:clamp(18px,2.4vw,28px);font-weight:1000;color:#0b6447;margin:10px 0}.mystery-card .challenge-instructions{font-weight:750;font-size:clamp(14px,1.55vw,18px);line-height:1.9;max-width:620px;margin:0 auto;color:#5e584a}
+.mystery-card .bonus-label{font-size:18px;font-weight:1000;display:inline-block;border-radius:100px;background:#f9ca65;color:#653612;padding:9px 20px;margin:16px auto 6px;box-shadow:0 5px 12px #0001}.mystery-card .challenge-team{display:inline-block;background:#0c7c57;color:#fff;border-radius:25px;padding:7px 18px;font-size:17px;font-weight:900}
+.mystery-controls{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin:20px 0 4px;position:relative}.mystery-controls .btn{font-size:16px}.mystery-rule{font-size:12px;color:#637467;line-height:1.7;font-weight:750;margin-top:17px}
+.mystery-locked{opacity:.53;cursor:not-allowed;filter:grayscale(.3)}.mystery-done{border-radius:19px;background:linear-gradient(120deg,#e3fff1,#fef6de);padding:13px 16px;color:#08664b;border:1px solid #8fdbb5;text-align:center;margin:12px 0;font-weight:850}
+.mystery-done .gift-spark{font-size:40px;display:block;animation:gift-float 2.7s ease-in-out infinite}
+@media(max-width:900px){.mystery-panel{align-items:flex-start}.mystery-panel .btn{min-width:145px}.rank-card .rank-pos{min-width:25px}}
+@media(max-width:620px){.mystery-panel{flex-direction:column;align-items:stretch;padding:15px 13px}.mystery-panel .btn{width:100%}.mystery-nav{order:-1}.heritage-word{font-size:11px}.oman-heritage-band{gap:5px}.rank-card .rank-score{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){.rank-card,.rank-card.is-leader,.rank-card.is-leader:after,.rank-card.just-scored .rank-score,.rank-rise,.flag-symbol,.flag-symbol:after,.heritage-symbol,.oman-heritage-band:before,.mystery-nav:before,.mystery-nav .box-emblem,.mystery-panel:before,.mystery-card,.mystery-card .present-icon,.mystery-card:before,.mystery-done .gift-spark,.leader-notice:before{animation:none!important}}
+
+
+/* Compact and scroll-safe mystery reveal for event screens and phones */
+html{background:#071f2a}
+body{background-attachment:scroll}
+.mystery-overlay .modal-card{width:min(730px,100%);max-height:calc(100dvh - 26px);overflow-y:auto;padding:16px 18px}
+.mystery-overlay .modal-head{margin-bottom:7px}
+.mystery-overlay .modal-head h2{font-size:22px;margin:3px 0}
+.mystery-overlay .modal-head p{font-size:12px;line-height:1.6}
+.mystery-card{padding:14px 15px 12px;border-radius:22px}
+.mystery-card .present-icon{font-size:clamp(64px,8vw,98px);line-height:1.18}
+.mystery-card h3{font-size:clamp(23px,2.3vw,28px);margin:0}
+.mystery-card .challenge-title{font-size:clamp(19px,2vw,24px);margin:6px 0}
+.mystery-card .challenge-instructions{font-size:clamp(13px,1.3vw,16px);line-height:1.6}
+.mystery-card .challenge-team{font-size:14px;padding:5px 12px}
+.mystery-card .bonus-label{font-size:15px;padding:6px 14px;margin:9px auto 3px}
+.mystery-controls{gap:8px;margin:11px 0 2px}
+.mystery-controls .btn{font-size:14px;padding:10px 13px}
+.mystery-rule{font-size:11px;margin-top:8px;line-height:1.5}
+@media(max-width:620px){.mystery-overlay .modal-card{padding:11px;max-height:calc(100dvh - 18px)}.mystery-card{padding:10px 8px}.mystery-card .present-icon{font-size:70px}.mystery-overlay .modal-head h2{font-size:18px}.mystery-controls .btn{padding:9px 10px;font-size:12px}.mystery-rule{font-size:10px}}
+
+/* Developer attribution below the game title — presentation only. */
+.developer-credit{display:inline-block;margin-top:5px;padding:4px 10px;border-radius:50px;color:#fff4d8;background:#ffffff15;border:1px solid #ffffff42;font:700 clamp(11px,1vw,13px)/1.35 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:.25px;text-shadow:0 2px 6px #0005;direction:ltr;text-align:left}
+@media(max-width:540px){.developer-credit{font-size:10px;margin-top:4px;padding:3px 8px}}
+
+/* Subtle developer byline in the upper-right: no pill, frame, or background. */
+.masthead{position:relative;padding-top:28px}
+.developer-credit{position:absolute;top:1px;right:6px;display:block;margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;color:#d8eee2;font:500 10px/1.3 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:.1px;white-space:nowrap;text-shadow:none;direction:ltr;opacity:.88;pointer-events:none}
+.access-card{padding-top:43px}
+.access-developer{position:absolute;top:14px;right:20px;margin:0;padding:0;text-align:right;color:#637a70;font:500 10px/1.3 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:0;white-space:nowrap;direction:ltr}
+.add-team-nav{background:linear-gradient(125deg,#0a966a,#0c614f)!important;color:#fff!important;border:1px solid #88e4b9!important;font-weight:900;box-shadow:0 5px 16px #0a6e4c48}
+.add-team-nav:disabled{opacity:.52;box-shadow:none}
+.add-team-help{background:#edf9f1;border:1px solid #cee9d6;border-radius:14px;color:#265c47;font-size:13px;line-height:1.8;padding:10px 14px;margin:12px 0 7px}
+.add-team-form .field-label{margin-top:15px}
+.add-team-form .name-box{margin-top:12px}
+.add-team-form .name-box:focus-within{border-color:#0a956c;box-shadow:0 0 0 3px #0a956c20}
+@media(max-width:540px){.masthead{padding-top:25px}.developer-credit{top:2px;right:3px;font-size:9px}.access-developer{font-size:9px;right:13px;top:12px}.add-team-nav{font-size:12px!important}.add-team-form .modal-actions{justify-content:stretch}.add-team-form .modal-actions .btn{flex:1}}
+
+/* Western digits stay left-to-right inside numeric badges, counters and countdowns. */
+.timer-digit strong,.q-tile,.rank-score,.tscore,.attempt-line,.stat-pill,.count-bubble,.note-badge,.rank-pos,.mystery-stats,.mini-circle,.name-index{font-variant-numeric:tabular-nums;font-feature-settings:"tnum";unicode-bidi:plaintext}
+
+/* Mystery card draw — positioned below the question board */
+.mystery-below-board{margin:23px 0 16px;border:2px solid #f0c86c}
+.mystery-card-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:15px 0}
+.mystery-flip-card{cursor:pointer;border:2px solid #eac26a;border-radius:18px;min-height:110px;background:linear-gradient(140deg,#b61637,#ef4654 50%,#087c57);box-shadow:0 8px 20px #3b152641;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;font-size:40px;transition:transform .2s ease,box-shadow .2s ease}
+.mystery-flip-card small{font-size:15px;font-weight:950;color:white}
+.mystery-flip-card:hover:not(:disabled){transform:translateY(-7px) rotate(-2deg);box-shadow:0 18px 26px #3b152655}
+.mystery-card-grid.is-shuffling .mystery-flip-card{animation:card-shuffle .4s ease-in-out infinite alternate;cursor:wait}
+.mystery-card-grid.is-shuffling .mystery-flip-card:nth-child(2n){animation-delay:-.17s}
+.mystery-card-grid.is-shuffling .mystery-flip-card:nth-child(3n){animation-delay:-.28s}
+@keyframes card-shuffle{0%{transform:translate(-5px,-4px) rotate(-5deg) scale(.95)}100%{transform:translate(5px,5px) rotate(5deg) scale(1.03)}}
+.mystery-pick-note{text-align:center;font-size:20px;font-weight:950;color:#8a2042;padding:10px}
+.mystery-challenge-clock{font-size:25px;color:#096846;font-weight:1000;margin:14px auto 8px;display:table;background:#e5fff1;padding:10px 24px;border:2px solid #73d9ad;border-radius:60px}
+.mystery-challenge-clock.danger{background:#ffe8e7;border-color:#df4d55;color:#b31835;animation:pulse 0.55s infinite alternate}
+@media(max-width:580px){.mystery-card-grid{grid-template-columns:repeat(4,1fr);gap:5px}.mystery-flip-card{min-height:72px;font-size:28px;border-radius:11px}.mystery-flip-card small{font-size:12px}.mystery-pick-note{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.mystery-card-grid.is-shuffling .mystery-flip-card{animation:none}}
+
+/* UI-only update: consistent Tajawal across all website components. */
+html,body,#app,#modal-root,#toast,#access-gate,
+button,input,select,textarea,option,a,svg text,
+.developer-credit,.access-developer,.access-submit,
+.brand,.hero,.masthead,.modal-card,.mystery-card {
+  font-family:"Tajawal", "Noto Sans Arabic", Tahoma, sans-serif !important;
+}
+/* RTL header title stays right; discreet developer credit moves to the opposite left corner. */
+.masthead { position:relative; }
+.masthead .developer-credit {
+  position:absolute; left:6px; right:auto; top:1px;
+  background:none; border:0; box-shadow:none; padding:0;
+  font-family:"Tajawal",Tahoma,sans-serif !important;
+  font-weight:500; font-size:11px; text-align:left; direction:ltr;
+}
+/* Keep credit opposite the centrally aligned login title as well. */
+.access-card { position:relative; }
+.access-card .access-developer {
+  position:absolute; left:18px; right:auto; top:13px; margin:0;
+  font-family:"Tajawal",Tahoma,sans-serif !important;
+  font-size:11px; direction:ltr; text-align:left;
+}
+@media (max-width:540px){
+  .masthead .developer-credit {left:4px;right:auto;top:2px;font-size:10px;}
+  .access-card .access-developer {left:12px;right:auto;top:11px;font-size:10px;}
+}
+
+  
+.oman-flag{display:inline-block;position:relative;width:1.55em;height:1.05em;vertical-align:-0.14em;border-radius:.16em;overflow:hidden;border:1px solid rgba(255,255,255,.58);box-shadow:0 2px 8px rgba(0,0,0,.18), inset 0 0 0 1px rgba(255,255,255,.18);background:linear-gradient(to bottom,#ffffff 0 33.333%,#c91c36 33.333% 66.666%,#0a8b5c 66.666% 100%)}
+.oman-flag::before{content:"";position:absolute;inset:0 auto 0 0;width:31%;background:#c91c36}
+.oman-flag::after{content:"";position:absolute;left:9%;top:14%;width:10%;height:10%;border:.09em solid #fff;border-left:0;border-bottom:0;border-radius:50%;transform:rotate(-12deg);opacity:.95}
+.flag-symbol .oman-flag,.access-flag .oman-flag{width:1.32em;height:.92em;border-radius:.18em;border-color:rgba(255,255,255,.72);box-shadow:0 8px 18px rgba(0,0,0,.12)}
+.category-banner .emoji .oman-flag,.note-badge .oman-flag,.stage-team .oman-flag,.toast .oman-flag,.modal-card .oman-flag,.saved-hint .oman-flag{width:1.3em;height:.9em}
+.hero-icon .oman-flag{width:1.15em;height:.78em;border-width:2px}
+
+
+/* Full national flag including the detailed white Khanjar and crossed swords, from the specified reference image. */
+.oman-flag{background:linear-gradient(to bottom,#fff 0 33.333%,#d71920 33.333% 66.666%,#007a3d 66.666% 100%);isolation:isolate;line-height:0;flex-shrink:0}
+.oman-flag::before,.oman-flag::after{display:none}
+.oman-flag img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:fill;border:0}
+
+/* Admin controls: all management actions live in Settings, not on the game board. */
+.settings-admin-tools{margin-top:18px;padding:16px;border:1px solid #cde4d7;border-radius:18px;background:linear-gradient(135deg,#f0fbf6,#fff9ee)}
+.settings-admin-tools h3{font-size:19px;color:#07553e;margin:0 0 12px;font-weight:900}
+.settings-admin-tools .actions{justify-content:flex-start;gap:10px}
+.settings-admin-tools .saved-hint{margin-top:14px;line-height:1.7}
+@media(max-width:560px){.settings-admin-tools .actions .btn{flex:1 1 185px}}
+</style>
+
+  <style id="access-gate-styles">
+    body.access-locked{overflow:hidden}
+    body.access-locked #app,body.access-locked #modal-root,
+    body.access-locked #confetti,body.access-locked #toast,
+    body.access-locked #import-file{display:none!important}
+    .access-gate{position:fixed;inset:0;z-index:99999;overflow:auto;display:grid;place-items:center;
+      padding:22px;background:radial-gradient(circle at 12% 12%,rgba(244,204,147,.28),transparent 28%),
+      radial-gradient(circle at 82% 79%,rgba(12,125,81,.43),transparent 42%),
+      linear-gradient(145deg,#6e192c 0%,#9c293a 45%,#185f48 100%);isolation:isolate}
+    .access-gate[hidden]{display:none}
+    .access-gate::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.13;pointer-events:none;
+      background:repeating-linear-gradient(42deg,transparent 0 43px,rgba(255,255,255,.28) 44px 45px,transparent 46px 83px)}
+    .access-gate::after{content:"";position:absolute;left:-8vw;bottom:-15vw;width:44vw;height:44vw;min-width:310px;min-height:310px;
+      border:45px solid rgba(255,255,255,.07);border-radius:50%;pointer-events:none;animation:access-float 10s ease-in-out infinite alternate}
+    .access-card{width:min(100%,480px);background:rgba(255,255,255,.98);border:1px solid rgba(255,255,255,.85);
+      border-radius:30px;box-shadow:0 28px 85px rgba(26,20,24,.39);padding:32px 30px 27px;
+      text-align:center;position:relative;overflow:hidden;animation:access-appear .55s cubic-bezier(.2,.8,.2,1) both}
+    .access-card::before{content:"";position:absolute;inset:0 0 auto;height:7px;
+      background:linear-gradient(to left,#b62c40 0 33.33%,#fff 33.33% 66.66%,#087649 66.66%)}
+    .access-flag{display:grid;place-items:center;width:78px;height:78px;margin:6px auto 14px;border-radius:25px;
+      background:linear-gradient(145deg,#fdf5ed,#f7e2d7);box-shadow:0 9px 27px rgba(151,40,52,.13);font-size:41px;
+      animation:access-float 3.5s ease-in-out infinite alternate}
+    .access-eyebrow{color:#a12d3b;font-size:12px;letter-spacing:2px;font-weight:900;margin:0}
+    .access-card h2{color:#14513d;font-size:clamp(25px,5.8vw,34px);line-height:1.4;margin:5px 0}
+    .access-card .access-subtitle{color:#67766e;font-size:14px;line-height:1.8;margin:6px 0 18px}
+    .access-developer{font-size:11px;letter-spacing:.3px;color:#819189;margin:0 0 19px;direction:ltr}
+    .access-field-label{display:block;text-align:right;font-size:14px;font-weight:900;color:#264f42;margin:0 0 9px}
+    .access-field{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid #dce6dd;
+      border-radius:16px;padding:4px 7px 4px 4px;transition:border .15s,box-shadow .15s}
+    .access-field:focus-within{border-color:#217856;box-shadow:0 0 0 4px rgba(30,113,81,.10)}
+    .access-field input{font-family:inherit;min-width:0;width:100%;border:0;outline:0;background:transparent;
+      font-size:19px;font-weight:800;letter-spacing:1.5px;padding:12px 9px;text-align:right;color:#1b4235}
+    .access-field input::placeholder{font-size:14px;letter-spacing:0;font-weight:500;color:#89988f}
+    .access-show{flex:0 0 auto;border:0;color:#356b57;background:#eff6f0;border-radius:11px;padding:10px 12px;font-size:12px;font-weight:800}
+    .access-submit{width:100%;border:0;border-radius:16px;color:white;font:900 17px inherit;
+      font-family:inherit;font-size:17px;font-weight:900;padding:16px 20px;margin-top:16px;
+      background:linear-gradient(110deg,#9e2536,#c64a4e);box-shadow:0 10px 22px rgba(145,35,49,.24);
+      transition:transform .2s,filter .2s}
+    .access-submit:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .access-submit:focus-visible,.access-show:focus-visible{outline:3px solid #d2a64b;outline-offset:3px}
+    .access-error{min-height:27px;padding-top:8px;color:#a62235;font-size:13px;font-weight:800;line-height:1.5}
+    .access-gate.failed .access-field{border-color:#c52d42}
+    .access-gate.failed .access-card{animation:access-shake .35s ease-in-out}
+    .access-footer{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:4px;color:#77887c;font-size:12px}
+    @keyframes access-float{from{transform:translateY(-5px)}to{transform:translateY(7px)}}
+    @keyframes access-appear{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+    @keyframes access-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+    @media(max-width:500px){.access-card{padding:27px 19px 20px;border-radius:22px}.access-gate{padding:13px}.access-card .access-subtitle{font-size:13px}}
+    @media(prefers-reduced-motion:reduce){.access-gate::after,.access-flag,.access-card,.access-gate.failed .access-card{animation:none!important}}
+  </style>
+</head>
+
+<body class="access-locked">
+<div id="access-gate" class="access-gate" role="dialog" aria-modal="true" aria-labelledby="access-title" aria-describedby="access-message">
+  <div class="access-card">
+    <div class="access-flag" aria-hidden="true">🇴🇲</div>
+    <p class="access-eyebrow">OMAN NATIONAL DAY • اليوم الوطني العُماني</p>
+    <h2 id="access-title">راية المجد | تحدّي عُمان</h2>
+    <p class="access-subtitle" id="access-message">مرحباً بك في اللعبة! أدخل كلمة المرور للبدء.</p>
+    <p class="access-developer">Developer: Sultan Al Balushi</p>
+    <form id="access-form" novalidate>
+      <label class="access-field-label" for="access-password">كلمة المرور</label>
+      <div class="access-field">
+        <input id="access-password" name="password" type="password" placeholder="أدخل كلمة المرور" autocomplete="off" spellcheck="false" required autofocus>
+        <button id="access-toggle" class="access-show" type="button" aria-label="إظهار كلمة المرور">إظهار</button>
+      </div>
+      <button class="access-submit" type="submit">🔓 دخول اللعبة</button>
+      <div id="access-error" class="access-error" role="alert" aria-live="polite"></div>
+    </form>
+    <div class="access-footer">🔒 <span>الدخول للمشاركين المصرّح لهم</span></div>
+  </div>
+</div>
+
+<div class="flag-ribbon"></div><div class="decor a"></div><div class="decor b"></div>
+<div class="scene-ambient" aria-hidden="true">
+  <span class="scene-glow a"></span><span class="scene-glow b"></span>
+  <span class="scene-ring a"></span><span class="scene-ring b"></span>
+  <span class="scene-spark a">✦</span><span class="scene-spark b">✧</span><span class="scene-spark c">✦</span>
+</div>
+<div id="app" aria-live="off"></div><div id="modal-root"></div><div id="confetti" class="confetti" aria-hidden="true"></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
+<input id="import-file" type="file" accept="application/json,.json" style="display:none" aria-label="استيراد نسخة احتياطية">
+
+<script id="access-gate-script">
+(function(){
+  'use strict';
+  const gate=document.getElementById('access-gate');
+  const input=document.getElementById('access-password');
+  const form=document.getElementById('access-form');
+  const error=document.getElementById('access-error');
+  const toggle=document.getElementById('access-toggle');
+  // Client-side password gate for a public static site (not server-side authentication).
+  const code='oman2040';
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(input.value===code){
+      error.textContent='';
+      document.body.classList.remove('access-locked');
+      gate.remove();
+      const game=document.getElementById('app');
+      if(game) game.removeAttribute('aria-hidden');
+      return;
+    }
+    gate.classList.remove('failed');
+    void gate.offsetWidth;
+    gate.classList.add('failed');
+    error.textContent='كلمة المرور غير صحيحة. حاول مرة أخرى.';
+    input.value='';
+    input.focus();
+  });
+  toggle.addEventListener('click',function(){
+    const show=input.type==='password';
+    input.type=show?'text':'password';
+    toggle.textContent=show?'إخفاء':'إظهار';
+    toggle.setAttribute('aria-label',show?'إخفاء كلمة المرور':'إظهار كلمة المرور');
+    input.focus();
+  });
+  input.addEventListener('input',function(){error.textContent='';gate.classList.remove('failed')});
+  // A fresh page load always requires the password. Game progress remains saved normally.
+  requestAnimationFrame(function(){input.focus()});
+})();
+</script>
+<script>
+'use strict';
+const QUIZ_DATA = {"categories":[{"id":"identity","title":"هوية عُمان","subtitle":"علمنا • وطننا • رموزنا","emoji":"🇴🇲","style":"red"},{"id":"history","title":"التاريخ والنهضة","subtitle":"من الأمس إلى المستقبل","emoji":"📜","style":"gold"},{"id":"geography","title":"جغرافيا عُمان","subtitle":"من مسندم إلى ظفار","emoji":"🧭","style":"green"},{"id":"heritage","title":"المعالم والتراث","subtitle":"قلاع • أفلاج • مواقع","emoji":"🏰","style":"red"},{"id":"truefalse","title":"صح أم خطأ؟","subtitle":"هل تعرف الحقيقة؟","emoji":"✅","style":"gold"},{"id":"emoji","title":"احزر من الرموز","subtitle":"فكّ شفرة عُمان","emoji":"🧩","style":"green"}],"questions":[{"id":"identity-01","category":"identity","number":1,"question":"ما الترتيب الزمني الدقيق لتطور النشيد الوطني العُماني بحسب وزارة الخارجية؟","answer":"تأليف 1932، تعديل الكلمات 1970، مراجعة الكلمات 2020","explain":"تذكر وزارة الخارجية أن السلام السلطاني أُلّف أول مرة سنة 1932، وأعيدت صياغة كلماته في 1970 ثم روجعت في 2020.","source":"flag","visual":"","hint":"","choices":["تأليف 1932، تعديل 2004، مراجعة 2011","تأليف 1932، تعديل الكلمات 1970، مراجعة الكلمات 2020","تأليف 1970، تعديل 2011، مراجعة 2020","تأليف 1970، تعديل 2004، مراجعة 2020"],"correctIndex":1},{"id":"identity-02","category":"identity","number":2,"question":"أي وصف أدق لتكوين الشعار الوطني لسلطنة عُمان؟","answer":"خنجر مُغمد مع حزامه فوق سيفين متقاطعين","explain":"يتكوّن الشعار من خنجر مُغمد وحزامه موضوعين فوق سيفين متقاطعين.","source":"flag","visual":"","hint":"","choices":["خنجر غير مُغمد فوق سيفين متوازيين","خنجر مع حزامه فوق ثلاثة سيوف متقاطعة","خنجر مُغمد بين سيفين غير متقاطعين","خنجر مُغمد مع حزامه فوق سيفين متقاطعين"],"correctIndex":3},{"id":"identity-03","category":"identity","number":3,"question":"أي تاريخين يرتبطان باعتماد العلم العُماني ثم تحديثه وفق وزارة الخارجية؟","answer":"17 ديسمبر 1970، ثم 22 مايو 2004","explain":"اعتمد العلم بمرسوم في 17 ديسمبر 1970، وجرى تحديثه بمرسوم في 22 مايو 2004.","source":"flag","visual":"","hint":"","choices":["11 يناير 1970، ثم 22 مايو 2004","17 ديسمبر 1971، ثم 22 مايو 2004","17 ديسمبر 1970، ثم 22 مايو 2014","17 ديسمبر 1970، ثم 22 مايو 2004"],"correctIndex":3},{"id":"identity-04","category":"identity","number":4,"question":"ما الدلالة التاريخية للشريط الأحمر في العلم بحسب الشرح الرسمي؟","answer":"إرث العلم الأحمر القديم ومعارك طرد الغزاة","explain":"يرتبط اللون الأحمر بالعلم القديم الأحمر وبالمعارك ضد الغزاة الأجانب.","source":"flag","visual":"","hint":"","choices":["السلام والعلاقات الخارجية","الخصوبة والزراعة والمياه","إرث العلم الأحمر القديم ومعارك طرد الغزاة","الوحدة الاقتصادية بين المحافظات"],"correctIndex":2},{"id":"identity-05","category":"identity","number":5,"question":"أين يقع الشعار الوطني على العلم العُماني كما تصفه وزارة الخارجية؟","answer":"بالأبيض داخل الشريط الأحمر العمودي قرب السارية","explain":"يقع الشعار باللون الأبيض ضمن المساحة الحمراء العمودية جهة سارية العلم.","source":"flag","visual":"","hint":"","choices":["بالأحمر وسط الشريط الأبيض الأفقي","بالذهبي في الركن الأيمن الأعلى","بالأبيض وسط الشريط الأخضر الأفقي","بالأبيض داخل الشريط الأحمر العمودي قرب السارية"],"correctIndex":3},{"id":"identity-06","category":"identity","number":6,"question":"وفق التسلسل التاريخي للشعار، متى بدأ استعماله شعارًا لأسرة البوسعيد تقريبًا؟","answer":"منتصف القرن الثامن عشر","explain":"تذكر وزارة الخارجية أن أصل الشعار يعود إلى منتصف القرن الثامن عشر كشعار لأسرة البوسعيد.","source":"flag","visual":"","hint":"","choices":["منتصف القرن التاسع عشر","منتصف القرن السادس عشر","منتصف القرن الثامن عشر","نهاية القرن السابع عشر"],"correctIndex":2},{"id":"identity-07","category":"identity","number":7,"question":"أي مطابقة لمعاني ألوان العلم العُماني صحيحة بالكامل؟","answer":"الأبيض للسلام؛ الأحمر لمعركة طرد الغزاة؛ الأخضر لخصوبة الأرض","explain":"هذه الدلالات الثلاث واردة في الشرح الرسمي للعلم.","source":"flag","visual":"","hint":"","choices":["الأبيض للسلام؛ الأحمر للزراعة؛ الأخضر للقوة البحرية","الأبيض للسلام؛ الأحمر لمعركة طرد الغزاة؛ الأخضر لخصوبة الأرض","الأبيض للتراث؛ الأحمر للوحدة؛ الأخضر للصناعات","الأبيض للجبال؛ الأحمر للتجارة؛ الأخضر للبحر"],"correctIndex":1},{"id":"identity-08","category":"identity","number":8,"question":"أي عبارة تفرّق بدقة بين مناسبة اليوم الوطني وإجازته في عام 2026؟","answer":"المناسبة 20 و21 نوفمبر؛ وقد تختلف أيام الإجازة المعلنة","explain":"حدد المرسوم 15/2025 يومي 20 و21 نوفمبر لليوم الوطني؛ قد تُعلن الإجازة في يومين آخرين.","source":"day","visual":"","hint":"","choices":["المناسبة 20 و21 نوفمبر؛ وقد تختلف أيام الإجازة المعلنة","المناسبة 25 و26 نوفمبر بموجب المرسوم 15/2025","المناسبة والإجازة دائمًا 18 و19 نوفمبر","تحدد اليونسكو تاريخ المناسبة سنويًا"],"correctIndex":0},{"id":"identity-09","category":"identity","number":9,"question":"ما التعديل الذي حدث في النشيد الوطني بعد تولي السلطان هيثم بن طارق الحكم؟","answer":"مراجعة كلمات النشيد عام 2020","explain":"وفق وزارة الخارجية روجعت كلمات النشيد في 2020 مع تولي السلطان هيثم الحكم.","source":"flag","visual":"","hint":"","choices":["مراجعة كلمات النشيد عام 2020","تغيير اسم النشيد إلى نشيد النهضة عام 2020","استبدال النشيد كله بمقطوعة جديدة عام 2021","اعتماد النشيد لأول مرة عام 2020"],"correctIndex":0},{"id":"identity-10","category":"identity","number":10,"question":"أي وصف يجمع بدقة شكل العلم الوطني وموقع الشعار؟","answer":"ثلاثة أشرطة أفقية مع شريط أحمر عمودي يحمل شعارًا أبيض","explain":"العلم مستطيل ذو ثلاثة أشرطة أفقية ومساحة حمراء عمودية جهة السارية تحمل الشعار الأبيض.","source":"flag","visual":"","hint":"","choices":["ثلاثة أشرطة أفقية مع شريط أحمر عمودي يحمل شعارًا أبيض","أربعة أشرطة أفقية متساوية بلا شعار","ثلاثة أشرطة عمودية وشعار في المنتصف","شريطان أفقيان ومثلث أحمر يحمل الشعار"],"correctIndex":0},{"id":"history-01","category":"history","number":1,"question":"أي تسلسل للأحداث التاريخية العُمانية صحيح من الأقدم إلى الأحدث؟","answer":"إجلاء البرتغاليين من مسقط، معاهدة بريطانيا، معاهدة أمريكا، النهضة الحديثة","explain":"الأعوام الأساسية: 1650، 1798، 1833، 1970.","source":"history","visual":"","hint":"","choices":["إجلاء البرتغاليين من مسقط، معاهدة بريطانيا، معاهدة أمريكا، النهضة الحديثة","معاهدة بريطانيا، إجلاء البرتغاليين، النهضة، معاهدة أمريكا","معاهدة أمريكا، معاهدة بريطانيا، إجلاء البرتغاليين، النهضة","إجلاء البرتغاليين، معاهدة أمريكا، معاهدة بريطانيا، النهضة"],"correctIndex":0},{"id":"history-02","category":"history","number":2,"question":"أي عام وقعت فيه المعاهدة الأولى بين دولة عربية خليجية وبريطانيا، وفق تاريخ عُمان الرسمي؟","answer":"1798","explain":"تورد وزارة الخارجية معاهدة الصداقة البريطانية لعام 1798 بصفتها الأولى من هذا النوع بين دولة عربية خليجية وبريطانيا.","source":"history","visual":"","hint":"","choices":["1800","1798","1833","1840"],"correctIndex":1},{"id":"history-03","category":"history","number":3,"question":"ما الذي حدث في 1840 بوصفه محطة رمزية في العلاقات العُمانية الأمريكية؟","answer":"وصول مبعوث عُماني على متن السفينة سلطانة إلى نيويورك","explain":"أبحر المبعوث أحمد بن نعمان إلى نيويورك على متن السفينة سلطانة عام 1840؛ سبقت ذلك معاهدة 1833.","source":"ministry","visual":"","hint":"","choices":["اعتماد العلم العُماني للمرة الأولى","تأسيس وزارة الخارجية الحديثة","توقيع أول معاهدة تجارية مع الولايات المتحدة","وصول مبعوث عُماني على متن السفينة سلطانة إلى نيويورك"],"correctIndex":3},{"id":"history-04","category":"history","number":4,"question":"أي عبارة تصف بدقة العلاقة بين معاهدة 1833 ورحلة 1840؟","answer":"معاهدة تجارة مع أمريكا في 1833، ثم رحلة دبلوماسية في 1840","explain":"وقّع السلطان سعيد معاهدة الصداقة والتجارة مع ممثل أمريكي سنة 1833؛ ووصل المبعوث العُماني إلى نيويورك عام 1840.","source":"ministry","visual":"","hint":"","choices":["تحرير مسقط في 1833، ثم معاهدة مع أمريكا في 1840","معاهدة مع بريطانيا في 1833، ثم معاهدة مع فرنسا في 1840","رحلة دبلوماسية في 1833، ثم معاهدة في 1840","معاهدة تجارة مع أمريكا في 1833، ثم رحلة دبلوماسية في 1840"],"correctIndex":3},{"id":"history-05","category":"history","number":5,"question":"في أي قرن طرد أحمد بن سعيد الغزاة الفرس وأسّس الأسرة الحاكمة الحالية؟","answer":"القرن الثامن عشر","explain":"تضع وزارة الخارجية حملة أحمد بن سعيد وتأسيس الأسرة الحاكمة في القرن الثامن عشر.","source":"history","visual":"","hint":"","choices":["القرن السادس عشر","القرن السابع عشر","القرن التاسع عشر","القرن الثامن عشر"],"correctIndex":3},{"id":"history-06","category":"history","number":6,"question":"ما المدينة التي أصبحت لفترة عاصمة للنفوذ العُماني في شرق أفريقيا؟","answer":"زنجبار","explain":"تذكر وزارة الخارجية أن زنجبار كانت لفترة عاصمة لعُمان وموقع القصر الرئيسي للسلطان.","source":"history","visual":"","hint":"","choices":["ماليندي","زنجبار","دار السلام","ممباسا"],"correctIndex":1},{"id":"history-07","category":"history","number":7,"question":"أي من التالي يميز سنة 1650 في التاريخ العُماني؟","answer":"انتهاء سيطرة البرتغاليين على مسقط","explain":"انتهت سيطرة البرتغاليين على مسقط عام 1650.","source":"history","visual":"","hint":"","choices":["انتهاء سيطرة البرتغاليين على مسقط","توقيع أول معاهدة مع الولايات المتحدة","تأسيس أسرة البوسعيد","بدء النهضة الحديثة"],"correctIndex":0},{"id":"history-08","category":"history","number":8,"question":"في أي سنة وصلت السفينة العُمانية «سلطانة» إلى نيويورك مع مبعوث السلطان؟","answer":"1840","explain":"تذكر وزارة الخارجية وصول المبعوث أحمد بن نعمان إلى نيويورك على متن السفينة سلطانة في 1840.","source":"ministry","visual":"","hint":"","choices":["1833","1840","1798","1856"],"correctIndex":1},{"id":"history-09","category":"history","number":9,"question":"أي مطابقة بين الحدث والعام صحيحة بالكامل؟","answer":"معاهدة أمريكا 1833؛ تأسيس وزارة الخارجية بصورتها الحديثة 1970","explain":"تعود معاهدة التجارة مع الولايات المتحدة إلى 1833، وأُنشئت وزارة الخارجية الحديثة عام 1970.","source":"ministry","visual":"","hint":"","choices":["معاهدة أمريكا 1840؛ تأسيس الخارجية 1971","معاهدة أمريكا 1798؛ تأسيس الخارجية 1970","معاهدة أمريكا 1833؛ تأسيس وزارة الخارجية بصورتها الحديثة 1970","معاهدة أمريكا 1833؛ تأسيس الخارجية 1981"],"correctIndex":2},{"id":"history-10","category":"history","number":10,"question":"أي وصف أكثر دقة لتاريخ السيادة العُمانية خلال فترات السيطرة الأجنبية على السواحل؟","answer":"احتفظت عُمان باستقلالها الأساسي رغم سيطرة أجنبية مؤقتة على بعض المناطق الساحلية","explain":"توضح وزارة الخارجية أن عُمان لم تصبح مستعمرة، رغم سيطرة قوى أجنبية على بعض المناطق الساحلية في فترات معينة.","source":"history","visual":"","hint":"","choices":["أصبحت عُمان مستعمرة برتغالية كاملة حتى 1970","احتفظت عُمان باستقلالها الأساسي رغم سيطرة أجنبية مؤقتة على بعض المناطق الساحلية","لم تشهد السواحل العُمانية أي سيطرة أجنبية مطلقًا","كانت عُمان مستعمرة بريطانية مباشرة في القرن التاسع عشر"],"correctIndex":1},{"id":"geography-01","category":"geography","number":1,"question":"أي محافظة تضم الولايات: خصب وبخاء ودبا ومدحاء؟","answer":"مسندم","explain":"تضم مسندم أربع ولايات: خصب وبخاء ودبا ومدحاء.","source":"regions","visual":"","hint":"","choices":["البريمي","مسندم","شمال الباطنة","الظاهرة"],"correctIndex":1},{"id":"geography-02","category":"geography","number":2,"question":"أي مجموعة تمثل جميع ولايات محافظة البريمي بحسب وزارة الخارجية؟","answer":"البريمي، محضة، السنينة","explain":"تضم محافظة البريمي ثلاث ولايات هي البريمي ومحضة والسنينة.","source":"regions","visual":"","hint":"","choices":["البريمي، السنينة، شناص","البريمي، عبري، ضنك","البريمي، محضة، ينقل","البريمي، محضة، السنينة"],"correctIndex":3},{"id":"geography-03","category":"geography","number":3,"question":"أي من الولايات التالية تتبع شمال الباطنة وليس جنوبها؟","answer":"لوى","explain":"لوى من ولايات شمال الباطنة، بينما نخل وبركاء والعوابي من جنوب الباطنة.","source":"regions","visual":"","hint":"","choices":["بركاء","نخل","العوابي","لوى"],"correctIndex":3},{"id":"geography-04","category":"geography","number":4,"question":"أي ولاية تتبع جنوب الباطنة وليس شمالها؟","answer":"وادي المعاول","explain":"وادي المعاول إحدى ولايات جنوب الباطنة؛ أما الولايات الثلاث الأخرى فهي في شمال الباطنة.","source":"regions","visual":"","hint":"","choices":["الخابورة","شناص","صحم","وادي المعاول"],"correctIndex":3},{"id":"geography-05","category":"geography","number":5,"question":"أي مجموعة ولايات تندرج كلها في محافظة الداخلية؟","answer":"منح، إزكي، بدبد، الحمراء","explain":"تضم الداخلية نزوى وآدم والحمراء وبهلاء وبدبد وإزكي ومنح وسمائل.","source":"regions","visual":"","hint":"","choices":["نزوى، ضنك، سمائل، بهلاء","منح، إبراء، بدبد، الحمراء","منح، إزكي، بدبد، الحمراء","منح، بدبد، جعلان بني بو علي، إزكي"],"correctIndex":2},{"id":"geography-06","category":"geography","number":6,"question":"أي مجموعة تمثل جميع ولايات محافظة الظاهرة؟","answer":"عبري، ضنك، ينقل","explain":"تضم الظاهرة ثلاث ولايات: عبري وضنك وينقل.","source":"regions","visual":"","hint":"","choices":["عبري، ضنك، محضة","عبري، الرستاق، ضنك","عبري، ضنك، ينقل","عبري، إزكي، ينقل"],"correctIndex":2},{"id":"geography-07","category":"geography","number":7,"question":"أي ولاية تتبع شمال الشرقية لا جنوب الشرقية؟","answer":"وادي بني خالد","explain":"وادي بني خالد من شمال الشرقية؛ أما مصيرة وجعلان بني بو حسن والكامل والوافي فمن جنوب الشرقية.","source":"regions","visual":"","hint":"","choices":["وادي بني خالد","مصيرة","جعلان بني بو حسن","الكامل والوافي"],"correctIndex":0},{"id":"geography-08","category":"geography","number":8,"question":"أي محافظة تضم الولايات: هيماء، الدقم، محوت، الجازر؟","answer":"الوسطى","explain":"هذه هي الولايات الأربع لمحافظة الوسطى.","source":"regions","visual":"","hint":"","choices":["الوسطى","ظفار","جنوب الشرقية","الداخلية"],"correctIndex":0},{"id":"geography-09","category":"geography","number":9,"question":"أي ولاية تقع في محافظة جنوب الشرقية وتُعد جزيرة رئيسية؟","answer":"مصيرة","explain":"مصيرة ولاية جزيرية ضمن محافظة جنوب الشرقية، بخلاف الخيارات الأخرى.","source":"regions","visual":"","hint":"","choices":["دبا","الدقم","السويق","مصيرة"],"correctIndex":3},{"id":"geography-10","category":"geography","number":10,"question":"أي عبارة تجمع حقيقة جغرافية صحيحة عن محافظتي ظفار والوسطى؟","answer":"ظفار أكبر مساحة؛ الوسطى ثاني أكبر المحافظات مساحة","explain":"تذكر وزارة الخارجية أن ظفار أكبر المحافظات مساحة والوسطى الثانية من حيث المساحة.","source":"regions","visual":"","hint":"","choices":["الوسطى أكبر مساحة؛ ظفار ثاني أكبر المحافظات","مسندم أكبر مساحة؛ ظفار الأصغر","مسقط أكبر مساحة؛ الوسطى الأصغر","ظفار أكبر مساحة؛ الوسطى ثاني أكبر المحافظات مساحة"],"correctIndex":3},{"id":"heritage-01","category":"heritage","number":1,"question":"ما التسلسل الصحيح لإدراج المواقع العُمانية الآتية في التراث العالمي؟","answer":"بهلاء 1987، بات 1988، أرض اللبان 2000، الأفلاج 2006","explain":"تسجل اليونسكو الأعوام: بهلاء 1987، بات والخطم والعين 1988، أرض اللبان 2000، الأفلاج 2006.","source":"wh","visual":"","hint":"","choices":["بهلاء 1987، أرض اللبان 1988، بات 2000، الأفلاج 2006","بات 1987، بهلاء 1988، الأفلاج 2000، أرض اللبان 2006","الأفلاج 1987، بهلاء 1988، بات 2000، أرض اللبان 2006","بهلاء 1987، بات 1988، أرض اللبان 2000، الأفلاج 2006"],"correctIndex":3},{"id":"heritage-02","category":"heritage","number":2,"question":"أي موقع عُماني أُدرج في قائمة التراث العالمي عام 2018؟","answer":"مدينة قلهات الأثرية","explain":"أدرجت مدينة قلهات الأثرية سنة 2018.","source":"qalhat","visual":"","hint":"","choices":["قلعة بهلاء","مدينة قلهات الأثرية","أنظمة الري بالأفلاج","أرض اللبان"],"correctIndex":1},{"id":"heritage-03","category":"heritage","number":3,"question":"ما العدد الدقيق للأفلاج المُدرجة بوصفها مكونات لموقع اليونسكو «أنظمة الري بالأفلاج»؟","answer":"5 أفلاج","explain":"يشمل الموقع خمسة أفلاج؛ وهو يمثّل نحو 3000 نظام أفلاج مستخدم في عُمان.","source":"aflaj","visual":"","hint":"","choices":["5 أفلاج","3 أفلاج","11 فلجًا","7 أفلاج"],"correctIndex":0},{"id":"heritage-04","category":"heritage","number":4,"question":"أي مجموعة هي المكونات الخمسة لموقع الأفلاج المدرج لدى اليونسكو؟","answer":"الجيلا، الميسر، دارس، المالكي، الخطمين","explain":"تسرد اليونسكو الأفلاج الخمسة: الجيلا والميسر ودارس والمالكي والخطمين.","source":"aflaj","visual":"","hint":"","choices":["الجيلا، دارس، حصن نزوى، الميسر، المالكي","الخطمين، الجيلا، فلج العين، دارس، الميسر","دارس، فلج الغنتق، الخطمين، المالكي، ضوت","الجيلا، الميسر، دارس، المالكي، الخطمين"],"correctIndex":3},{"id":"heritage-05","category":"heritage","number":5,"question":"أي ثلاث فئات تصنّف مصادر المياه في الأفلاج العُمانية وفق وصف اليونسكو؟","answer":"عيني، داوودي، غيلي","explain":"تقسم اليونسكو الأفلاج إلى عيني وداوودي وغيلي وفق مصدر المياه.","source":"aflaj","visual":"","hint":"","choices":["عيني، ساحلي، مطري","داوودي، بحري، جبلي","غيلي، صحراوي، صناعي","عيني، داوودي، غيلي"],"correctIndex":3},{"id":"heritage-06","category":"heritage","number":6,"question":"أي مجموعة تمثل المكونات الأربعة لموقع «أرض اللبان» العالمي؟","answer":"وادي دوكة، شصر، خور روري، البليد","explain":"تضم أرض اللبان وادي دوكة وواحة شصر وميناء خور روري وميناء البليد.","source":"frank","visual":"","hint":"","choices":["خور روري، بات، البليد، شصر","وادي دوكة، قلهات، شصر، بهلاء","وادي دوكة، شصر، خور روري، البليد","البليد، نزوى، وادي دوكة، عين الكسفة"],"correctIndex":2},{"id":"heritage-07","category":"heritage","number":7,"question":"أي موقع من أرض اللبان اشتهر بوصفه ميناءً يعود ازدهاره إلى القرن الرابع قبل الميلاد؟","answer":"خور روري","explain":"تحدد اليونسكو زمن نشاط خور روري بين القرن الرابع قبل الميلاد والقرن الخامس الميلادي.","source":"frank","visual":"","hint":"","choices":["البليد","وادي دوكة","شصر","خور روري"],"correctIndex":3},{"id":"heritage-08","category":"heritage","number":8,"question":"ما العصر الأثري الذي تميّز به مجمع بات والخطم والعين بحسب اليونسكو؟","answer":"الألفية الثالثة قبل الميلاد (العصر البرونزي)","explain":"يضم الموقع مستوطنات ومدافن من الألفية الثالثة قبل الميلاد.","source":"bat","visual":"","hint":"","choices":["الألفية الثالثة قبل الميلاد (العصر البرونزي)","الألفية الأولى الميلادية","القرن الثاني الميلادي","القرن الخامس عشر الميلادي"],"correctIndex":0},{"id":"heritage-09","category":"heritage","number":9,"question":"مع أي سلالة ارتبط ازدهار واحة بهلاء بين القرنين الثاني عشر والخامس عشر؟","answer":"بنو نبهان","explain":"تربط اليونسكو ازدهار بهلاء بسيادة بني نبهان خلال القرنين 12 إلى نهاية 15.","source":"bh","visual":"","hint":"","choices":["البوسعيد","النباهنة في القرن التاسع عشر فقط","اليعاربة","بنو نبهان"],"correctIndex":3},{"id":"heritage-10","category":"heritage","number":10,"question":"بأي قوة سياسية ارتبط ازدهار مدينة قلهات التجارية بين القرنين 11 و16؟","answer":"أمراء هرمز","explain":"ازدهرت قلهات تحت حكم أمراء هرمز وكانت مركزًا للتجارة عبر المحيط الهندي.","source":"qalhat","visual":"","hint":"","choices":["الخلافة العباسية حصريًا","أمراء هرمز","حكم اليعاربة منذ القرن 11","الإمبراطورية البرتغالية منذ القرن 11"],"correctIndex":1},{"id":"truefalse-01","category":"truefalse","number":1,"question":"أي عبارة من الأربع صحيحة حول التسلسل التاريخي للعلم والنشيد؟","answer":"العلم اعتمد عام 1970، بينما يعود تأليف النشيد أول مرة إلى 1932","explain":"اعتمد العلم في 1970، بينما تأليف السلام السلطاني يرجع إلى 1932.","source":"flag","visual":"","hint":"","choices":["العلم والنشيد اعتُمدا للمرة الأولى عام 2004","العلم اعتمد عام 1970، بينما يعود تأليف النشيد أول مرة إلى 1932","العلم اعتمد عام 1932 والنشيد أُلّف عام 1970","تعديل العلم عام 2020 سبق اعتماد العلم الأصلي"],"correctIndex":1},{"id":"truefalse-02","category":"truefalse","number":2,"question":"أي عبارة صحيحة حول العلاقات العُمانية الأمريكية؟","answer":"سبق توقيع معاهدة 1833 وصول المبعوث العُماني إلى نيويورك في 1840","explain":"معاهدة 1833 سبقت رحلة سلطانة إلى نيويورك سنة 1840.","source":"ministry","visual":"","hint":"","choices":["وُقعت معاهدة الولايات المتحدة سنة 1798","وصل المبعوث إلى نيويورك قبل توقيع المعاهدة بعشر سنوات","سبق توقيع معاهدة 1833 وصول المبعوث العُماني إلى نيويورك في 1840","أُرسلت السفينة سلطانة إلى لندن وليس نيويورك"],"correctIndex":2},{"id":"truefalse-03","category":"truefalse","number":3,"question":"اختر العبارة الصحيحة عن مواقع عُمان المدرجة في التراث العالمي.","answer":"قلهات هي أحدث المواقع الخمسة المذكورة لدى اليونسكو (2018)","explain":"الترتيب الزمني: بهلاء 1987، بات 1988، أرض اللبان 2000، الأفلاج 2006، قلهات 2018.","source":"wh","visual":"","hint":"","choices":["قلهات هي أحدث المواقع الخمسة المذكورة لدى اليونسكو (2018)","الأفلاج أُدرجت في 1988","أرض اللبان أُدرجت قبل قلعة بهلاء","بات والخطم والعين أُدرجت في 2006"],"correctIndex":0},{"id":"truefalse-04","category":"truefalse","number":4,"question":"أي عبارة أدق في وصف مجموعة أفلاج اليونسكو؟","answer":"الموقع يضم 5 أفلاج تمثل نظامًا أوسع يضم آلاف الأفلاج","explain":"تضم القائمة خمسة مكونات تمثّل تقليدًا واسعًا للأفلاج يتجاوز ثلاثة آلاف نظام.","source":"aflaj","visual":"","hint":"","choices":["جميع الأفلاج المدرجة تعتمد على مياه البحر","الموقع يضم 3000 فلج مدرج منفصلًا","تنتقل المياه في الأفلاج المدرجة بالمضخات الكهربائية فقط","الموقع يضم 5 أفلاج تمثل نظامًا أوسع يضم آلاف الأفلاج"],"correctIndex":3},{"id":"truefalse-05","category":"truefalse","number":5,"question":"أي عبارة صحيحة عن شمال الباطنة وجنوب الباطنة؟","answer":"أُنشئتا بصورتهما الحالية بعد تقسيم الباطنة عام 2011","explain":"ورد تقسيم الباطنة بتاريخ 28 أكتوبر 2011 في وصف وزارة الخارجية.","source":"regions","visual":"","hint":"","choices":["أُنشئتا بعد تقسيم الباطنة عام 1981","شمال الباطنة تضم الرستاق ونخل","أُنشئتا بصورتهما الحالية بعد تقسيم الباطنة عام 2011","جنوب الباطنة تضم شناص ولوى"],"correctIndex":2},{"id":"truefalse-06","category":"truefalse","number":6,"question":"أي عبارة صحيحة عن شمال الشرقية وجنوب الشرقية؟","answer":"تشكلتا بتقسيم الشرقية عام 2011، ومصيرة تتبع جنوب الشرقية","explain":"نشأت المحافظتان بتقسيم الشرقية في 2011، ومصيرة من ولايات جنوب الشرقية.","source":"regions","visual":"","hint":"","choices":["تشكلتا في 1970، ومصيرة تتبع شمال الشرقية","تشكلتا في 2011، والدقم تتبع جنوب الشرقية","تشكلتا بتقسيم الشرقية عام 2011، ومصيرة تتبع جنوب الشرقية","تشكلتا في 1988، وبدية تتبع جنوب الشرقية"],"correctIndex":2},{"id":"truefalse-07","category":"truefalse","number":7,"question":"أي عبارة صحيحة عن سِمة من سمات قلهات التاريخية؟","answer":"كانت ميناءً تجاريًا مهمًا في نطاق مملكة هرمز خلال العصور الوسطى","explain":"ترتبط قلهات بالتجارة البحرية ضمن نطاق مملكة هرمز وأُدرجت سنة 2018.","source":"qalhat","visual":"","hint":"","choices":["كانت عاصمة دولة البوسعيد في 1744","أُدرجت في قائمة اليونسكو عام 1987","اشتهرت باستخراج النحاس في الألفية الثالثة قبل الميلاد","كانت ميناءً تجاريًا مهمًا في نطاق مملكة هرمز خلال العصور الوسطى"],"correctIndex":3},{"id":"truefalse-08","category":"truefalse","number":8,"question":"أي عبارة صحيحة عن موقع بات والخطم والعين؟","answer":"يضم مدافن ومستقرات من العصر البرونزي ترجع للألفية الثالثة قبل الميلاد","explain":"يضم الموقع مستوطنات ومدافن من الألفية الثالثة قبل الميلاد بمحافظة الظاهرة.","source":"bat","visual":"","hint":"","choices":["يقع موقعه الأساسي في محافظة ظفار","يضم خمسة أفلاج أثرية دون مدافن","يقتصر الموقع على حصن إسلامي من القرن 17","يضم مدافن ومستقرات من العصر البرونزي ترجع للألفية الثالثة قبل الميلاد"],"correctIndex":3},{"id":"truefalse-09","category":"truefalse","number":9,"question":"أي عبارة صحيحة عن أرض اللبان حسب اليونسكو؟","answer":"يجمع الموقع منطقة إنتاج اللبان وواحة قوافل وموانئ تاريخية","explain":"تمثل وادي دوكة وشصر وخور روري والبليد مراحل إنتاج اللبان وتوزيعه وتجارته.","source":"frank","visual":"","hint":"","choices":["يشمل قلعة بهلاء ومدينة قلهات","يتكوّن من خمسة أفلاج في الجبل الأخضر","يقتصر على سوق واحد داخل مسقط","يجمع الموقع منطقة إنتاج اللبان وواحة قوافل وموانئ تاريخية"],"correctIndex":3},{"id":"truefalse-10","category":"truefalse","number":10,"question":"أي عبارة صحيحة بخصوص جغرافية المحافظات العُمانية؟","answer":"تضم محافظة الوسطى أربع ولايات بينها محوت والجازر","explain":"الوسطى: هيماء ومحوت والدقم والجازر؛ مسندم أربع، البريمي ثلاث، الظاهرة ثلاث.","source":"regions","visual":"","hint":"","choices":["تضم محافظة الوسطى أربع ولايات بينها محوت والجازر","محافظة الظاهرة تضم عشر ولايات","محافظة مسندم تضم ثماني ولايات","محافظة البريمي تضم ست ولايات"],"correctIndex":0},{"id":"emoji-01","category":"emoji","number":1,"question":"ما الموقع التراثي المقصود بالتلميحات الرمزية والتاريخية؟","answer":"مواقع بات والخطم والعين","explain":"ترمز الأيقونات إلى المدافن الأثرية والعصر البرونزي وتجارة النحاس في الألفية الثالثة قبل الميلاد.","source":"bat","visual":"⚱️ 🪨 🥉 🏺","hint":"","choices":["مواقع بات والخطم والعين","مدينة قلهات الأثرية","أرض اللبان","قلعة بهلاء"],"correctIndex":0},{"id":"emoji-02","category":"emoji","number":2,"question":"أي موقع يربط هذه الرموز مع التجارة البرية والبحرية في ظفار؟","answer":"أرض اللبان","explain":"ترمز إلى شجر اللبان وواحة القوافل والموانئ التي ارتبطت بتجارة اللبان.","source":"frank","visual":"🌳 🐪 🚢 🕯️","hint":"","choices":["مدينة قلهات الأثرية","قلعة بهلاء","مواقع بات والخطم والعين","أرض اللبان"],"correctIndex":3},{"id":"emoji-03","category":"emoji","number":3,"question":"أي نظام هندسي عُماني تشير إليه هذه الرموز؟","answer":"أنظمة الري بالأفلاج","explain":"تشير الرموز إلى تدفق المياه بالجاذبية وتقاسم الحصص وفق الوقت.","source":"aflaj","visual":"💧 ⏳ 🌴 🕳️","hint":"","choices":["أنظمة الري بالأفلاج","صناعة السفن التقليدية","موانئ تجارة اللبان","المدافن البرونزية"],"correctIndex":0},{"id":"emoji-04","category":"emoji","number":4,"question":"أي موقع تاريخي ارتبط بازدهار بني نبهان بهذه الرموز؟","answer":"قلعة بهلاء","explain":"تشير القلعة والأسوار الطينية والنخيل إلى موقع بهلاء الذي ازدهر في عهد بني نبهان.","source":"bh","visual":"🏰 🧱 🌴 👑","hint":"","choices":["مدينة قلهات الأثرية","قلعة جبرين","قلعة بهلاء","حصن نزوى"],"correctIndex":2},{"id":"emoji-05","category":"emoji","number":5,"question":"أي ميناء من مكونات أرض اللبان تشير إليه رموز الميناء القديم والتحصينات؟","answer":"خور روري","explain":"خور روري ميناء أثري محصن ضمن موقع أرض اللبان العالمي.","source":"frank","visual":"⚓ 🏯 🌊 🕯️","hint":"","choices":["شصر","خور روري","بات","وادي دوكة"],"correctIndex":1},{"id":"emoji-06","category":"emoji","number":6,"question":"أي واحة قوافل بعيدة عن الساحل تتوافق مع هذه الرموز؟","answer":"شصر / وبار","explain":"شصر واحة داخلية للقوافل ضمن أرض اللبان، بخلاف الموانئ الساحلية.","source":"frank","visual":"🐪 🏜️ 🫗 🧭","hint":"","choices":["قلهات","البليد","شصر / وبار","خور روري"],"correctIndex":2},{"id":"emoji-07","category":"emoji","number":7,"question":"أي مدينة عُمانية يلمح إليها اجتماع مملكة هرمز وتجارة الهند؟","answer":"قلهات","explain":"اشتهرت قلهات في العصور الوسطى بالتجارة البحرية ضمن نطاق حكم أمراء هرمز.","source":"qalhat","visual":"👑 ⛵ 🇮🇳 🏺","hint":"","choices":["الرستاق","قلهات","نزوى","صحار"],"correctIndex":1},{"id":"emoji-08","category":"emoji","number":8,"question":"أي محافظة عُمانية تشير إليها مجموعة الولايات الرمزية أدناه؟","answer":"الوسطى","explain":"تشير رموز الصحراء والميناء إلى هيماء والدقم والمحوت والجازر في محافظة الوسطى.","source":"regions","visual":"🏜️ ⚓ 🛣️ 🐪","hint":"","choices":["الداخلية","الوسطى","جنوب الشرقية","ظفار"],"correctIndex":1},{"id":"emoji-09","category":"emoji","number":9,"question":"أي موقع أثري عُماني يرتبط بالمدافن الحجرية وتجارة النحاس قديمًا؟","answer":"بات والخطم والعين","explain":"الموقع من العصر البرونزي، ويرتبط بسياق تجارة النحاس في عُمان القديمة.","source":"bat","visual":"🪨 🪦 ⛏️ 🚢","hint":"","choices":["بات والخطم والعين","قلعة جبرين","شصر والبليد","الأفلاج الخمسة"],"correctIndex":0},{"id":"emoji-10","category":"emoji","number":10,"question":"أي وجهة من التراث العالمي تقترن بتوزيع مياه الري وفق حصص زمنية؟","answer":"أفلاج عُمان المدرجة في اليونسكو","explain":"المقاسمة الزمنية للمياه من سمات الإدارة المجتمعية لأنظمة الأفلاج التقليدية.","source":"aflaj","visual":"🌊 🕰️ ⚖️ 🌴","hint":"","choices":["أفلاج عُمان المدرجة في اليونسكو","أرض اللبان","قلهات","قلعة بهلاء"],"correctIndex":0}],"sources":{"facts":["وزارة الخارجية العُمانية — حقائق أساسية","https://www.fm.gov.om/en/about-oman/state/key-facts/"],"flag":["وزارة الخارجية العُمانية — العلم والشعار والنشيد","https://www.fm.gov.om/en/about-oman/state/flag-emblem-and-national-anthem/"],"day":["المرسوم السلطاني 15/2025 — الجريدة الرسمية","https://www.mjla.gov.om/modules/decrees/download.php?file=1301"],"head":["وزارة الخارجية — رئيس الدولة","https://www.fm.gov.om/en/about-oman/state/head-of-state/"],"history":["وزارة الخارجية — تاريخ عُمان","https://www.fm.gov.om/en/about-oman/state/history/"],"ministry":["وزارة الخارجية — تاريخ الوزارة","https://www.fm.gov.om/en/ministry/about-us/history-of-the-foreign-ministry/"],"regions":["وزارة الخارجية — محافظات عُمان","https://www.fm.gov.om/en/about-oman/state/oman-by-region/"],"tourism":["وزارة الخارجية — المعلومات السياحية","https://www.fm.gov.om/en/visitors/tourism-information/"],"dest":["تجربة عُمان — الوجهات السياحية","https://experienceoman.om/destinations"],"bh":["اليونسكو — قلعة بهلاء","https://whc.unesco.org/en/list/433/"],"wh":["اليونسكو — التراث العالمي في عُمان","https://whc.unesco.org/en/statesparties/om"],"aflaj":["اليونسكو — أنظمة الري بالأفلاج","https://whc.unesco.org/en/list/1207"],"bat":["اليونسكو — مواقع بات والخطم والعين","https://whc.unesco.org/en/list/434"],"qalhat":["اليونسكو — مدينة قلهات الأثرية","https://whc.unesco.org/en/list/1537"],"frank":["اليونسكو — أرض اللبان","https://whc.unesco.org/en/list/1010"],"vision":["الموقع الحكومي — رؤية عُمان 2040","https://ftp.omaninfo.om/en/pages/205/show/878"],"address":["خطاب جلالة السلطان — اليوم الوطني","https://www.fm.gov.om/en/21003/"],"flaglaw":["المرسوم السلطاني 99/2026 — مواصفات العلم العُماني","https://qanoon.om/p/2026/rd2026099/"],"nizwa":["حصن نزوى — الموقع الرسمي","https://nizwafort.om/en/about-fort/"],"nizwa_tourism":["تجربة عُمان — حصن نزوى","https://experienceoman.om/en/destinations/al-dakhiliyah/nizwa-fort"],"national_flag":["البوابة الإعلامية العُمانية — العلم الوطني","https://omaninfo.om/en/pages/161/show/600"],"2026holiday":["البوابة الحكومية — إجازة اليوم الوطني لعام 2026","https://gov.om/en/important-dates-and-holidays"],"jabrin":["تجربة عُمان — قلعة جبرين","https://experienceoman.om/en/destinations/al-dakhiliyah/jabreen-castle"],"rasjinz":["تجربة عُمان — محمية رأس الجنز","https://experienceoman.om/en/destinations/al-sharqiyah-south/ras-al-jinz-turtle-reserve"],"wadishab":["تجربة عُمان — وادي شاب","https://experienceoman.om/en/destinations/al-sharqiyah-south/wadi-shab"],"oaam":["تجربة عُمان — متحف عُمان عبر الزمان","https://experienceoman.om/en/destinations/al-dakhiliyah/oman-across-ages-museum"]}};
+const STORE_KEY='raiyat_oman_game_hard_v1';
+ const GAME_BUILD='2026.11.14-MC2-MYSTERY';
+const CATEGORY_MAP=Object.fromEntries(QUIZ_DATA.categories.map(x=>[x.id,x]));
+const QUESTION_MAP=Object.fromEntries(QUIZ_DATA.questions.map(x=>[x.id,x]));
+const TIMER_OPTIONS=[15,20,30,45,60,90];
+const MYSTERY_POINTS=2;
+const MYSTERY_CHALLENGES=[
+ {id:'one-rial',emoji:'💵',title:'ورقة نقدية عُمانية',detail:'إظهار ورقة نقدية عُمانية من فئة ريال واحد.',type:'challenge'},
+ {id:'flag-table',emoji:'🇴🇲',title:'علم عُمان',detail:'وضع علم عُمان على الطاولة.',type:'challenge'},
+ {id:'wa-sultan',emoji:'👑',title:'صورة السلطان',detail:'إظهار صورة جلالة السلطان هيثم بن طارق كصورة شخصية في واتساب لأحد أعضاء الفريق.',type:'challenge'},
+ {id:'wa-flag',emoji:'📱',title:'صورة العلم',detail:'إظهار علم عُمان كصورة شخصية في واتساب لأحد أعضاء الفريق.',type:'challenge'},
+ {id:'three-colors',emoji:'🎨',title:'ألوان عُمان',detail:'إظهار ثلاثة أشياء بالألوان الأحمر والأبيض والأخضر.',type:'challenge'},
+ {id:'lucky',emoji:'🎉',title:'ربحت نقطتين',detail:'مبروك ربحت نقطتين',type:'instant',points:2},
+ {id:'unlucky',emoji:'💔',title:'خصم نقطة',detail:'للأسف سيتم خصم نقطة.',type:'instant',points:-1},
+ {id:'greeting-paper',emoji:'✍️',title:'تهنئة وطنية',detail:'كتابة تهنئة باليوم الوطني العُماني على ورقة.',type:'challenge'},
+ {id:'five-rials',emoji:'💵',title:'خمسة ريالات',detail:'إظهار ورقة نقدية عُمانية من فئة 5 ريالات.',type:'challenge'},
+ {id:'hundred-baisa',emoji:'🪙',title:'100 بيسة',detail:'جمع عملات معدنية عُمانية مجموعها 100 بيسة.',type:'challenge'},
+ {id:'sultan-qaboos-photo',emoji:'👑',title:'صورة السلطان قابوس',detail:'إظهار صورة جلالة السلطان قابوس بن سعيد على هاتف أحد أعضاء الفريق.',type:'challenge'},
+ {id:'flag-gallery',emoji:'📱',title:'العلم في معرض الصور',detail:'إظهار علم عُمان في معرض الصور على هاتف أحد أعضاء الفريق.',type:'challenge'},
+ {id:'fort-photo',emoji:'🏰',title:'قلعة نزوى أو بهلاء',detail:'إظهار صورة قلعة نزوى أو قلعة بهلاء على الهاتف.',type:'challenge'},
+ {id:'kumma-mussar',emoji:'🧢',title:'الزي العُماني',detail:'إظهار كُمّة أو مصر عُماني.',type:'challenge'},
+ {id:'anthem',emoji:'🎤',title:'النشيد السلطاني',detail:'أداء مقطع قصير من النشيد السلطاني أمام الحضور.',type:'challenge'},
+ {id:'dialect',emoji:'🗣️',title:'اللهجة العُمانية',detail:'قول ثلاث كلمات من اللهجة العُمانية.',type:'challenge'},
+ {id:'flag-colors-items',emoji:'🔴',title:'ألوان العلم الثلاثة',detail:'جمع ثلاثة أشياء بألوان العلم العُماني: الأحمر والأبيض والأخضر.',type:'challenge'},
+ {id:'five-landmarks',emoji:'🏯',title:'خمسة معالم',detail:'ذكر خمسة معالم عُمانية خلال 20 ثانية.',type:'challenge'},
+ {id:'six-governorates',emoji:'🗺️',title:'ست محافظات',detail:'ذكر ست محافظات عُمانية خلال 20 ثانية.',type:'challenge'},
+ {id:'free-redraw',emoji:'🔄',title:'إعادة سحب مجانية',detail:'مبروك! أعد سحب بطاقة للفريق نفسه دون خصم نقاط.',type:'redraw'},
+ {id:'leader-gift',emoji:'🏆',title:'هدية للمتصدر',detail:'الفريق المتصدر الآن يحصل على نقطتين إضافيتين فورًا.',type:'leader',points:2}
+];
+const MYSTERY_MAP=Object.fromEntries(MYSTERY_CHALLENGES.map(c=>[c.id,c]));
+function emptyMystery(){return {records:[],pending:null,drawnCards:[]}}
+function normalizeMysteryDeck(m){
+ if(!Array.isArray(m.drawnCards)){
+  // Upgrade saved games from earlier editions: reconstruct the latest cycle where possible.
+  const prior=[];
+  for(const r of m.records||[]){const id=r.challengeId;if(!MYSTERY_MAP[id])continue;if(prior.includes(id)||prior.length>=MYSTERY_CHALLENGES.length)prior.length=0;prior.push(id)}
+  const pendingId=m.pending?.challengeId;
+  if(MYSTERY_MAP[pendingId]&&!prior.includes(pendingId)){if(prior.length>=MYSTERY_CHALLENGES.length)prior.length=0;prior.push(pendingId)}
+  m.drawnCards=prior;
+ }
+ m.drawnCards=[...new Set(m.drawnCards.filter(id=>typeof id==='string'&&MYSTERY_MAP[id]))];
+ return m;
+}
+function mysteryData(){if(!state.mystery||!Array.isArray(state.mystery.records))state.mystery=emptyMystery();return normalizeMysteryDeck(state.mystery)}
+function mysteryRemaining(){return Math.max(0,MYSTERY_CHALLENGES.length-mysteryData().drawnCards.length)}
+function bonusFor(teamId){return mysteryData().records.filter(r=>r.teamId===teamId).reduce((total,r)=>total+r.points,0)}
+function mysteryAttempted(teamId){return mysteryData().records.some(r=>r.teamId===teamId)}
+function mysteryOpenCount(){return state.teams.length}
+function previousRanks(){return scoreSort().map(t=>t.id)}
+function noteRankChange(teamId,before){const after=previousRanks();const oldIndex=before.indexOf(teamId);const newIndex=after.indexOf(teamId);state.momentum={teamId,up:oldIndex-newIndex,at:Date.now()}}
+function mysteryChallengeHtml(){
+ const p=mysteryData().pending;
+ if(ui.mysteryResult&&!p){const r=ui.mysteryResult;return `<div class="modal-backdrop mystery-overlay"><section class="modal-card" role="dialog" aria-modal="true"><div class="mystery-card"><div class="present-icon">${r.emoji}</div><h2>${esc(r.detail)}</h2><p class="challenge-team">${esc(r.team)}</p><div class="bonus-label">${r.points>0?'+':''}${num(r.points)} نقطة</div><div class="mystery-controls"><button class="btn green big" data-action="mystery-close">✓ العودة إلى اللعبة</button></div></div></section></div>`}
+ if(!p)return '';
+ const team=findTeam(p.teamId);if(!team)return '';
+ const picking=p.phase==='shuffle'||p.phase==='pick';
+ const c=MYSTERY_MAP[p.challengeId];
+ const timer=p.deadline?Math.max(0,Math.ceil((p.deadline-Date.now())/1000)):20;
+ const redraw=p.phase==='redraw';
+ return `<div class="modal-backdrop mystery-overlay"><section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><div><div class="note-badge">🎁 صندوق المفاجآت • ${num(MYSTERY_CHALLENGES.length)} مفاجأة</div><h2 id="modal-title">${p.phase==='shuffle'?'🎴 خلط البطاقات بسرعة':p.phase==='pick'?'🎯 اختر بطاقة من الأسفل':redraw?'🔄 إعادة سحب مجانية':'🎁 تحدّي '+esc(team.name)}</h2><p>الفريق: ${esc(team.name)} · يمكن المشاركة أكثر من مرة</p></div><button class="x-button" data-action="close-modal" aria-label="إغلاق">×</button></div>${picking?`<div class="mystery-pick-note">${p.phase==='shuffle'?'✨ جارٍ خلط البطاقات...':'👇 اضغط إحدى البطاقات للكشف عن المفاجأة'}</div><div class="mystery-card-grid ${p.phase==='shuffle'?'is-shuffling':''}">${p.cards.map((id,i)=>`<button class="mystery-flip-card" data-action="mystery-pick-card" data-index="${i}" ${p.phase==='shuffle'?'disabled':''} aria-label="اختيار البطاقة ${i+1}"><span>🎁</span><small>${num(i+1)}</small></button>`).join('')}</div>`:redraw?`<div class="mystery-card"><span class="present-icon">🔄</span><span class="challenge-team">🎯 ${esc(team.name)}</span><h3>إعادة سحب مجانية!</h3><p class="challenge-instructions">${esc(c.detail)} لا تُحتسب نقاط ولا محاولة إضافية، ولن تظهر بطاقة إعادة السحب في السحبة المجانية.</p><div class="mystery-controls"><button class="btn green big" data-action="mystery-redraw">🎴 اسحب بطاقة جديدة مجانًا</button></div></div>`:`<div class="mystery-card"><span class="present-icon">${c.emoji}</span><span class="challenge-team">🎯 ${esc(team.name)}</span><h3>${esc(c.title)}</h3><p class="challenge-instructions">${esc(c.detail)}</p><div class="mystery-challenge-clock ${timer<=5?'danger':''}" id="mystery-clock">⏱️ <b id="mystery-seconds">${num(timer)}</b> ثانية</div><div class="mystery-controls"><button class="btn green big" data-action="mystery-win">✅ تم التنفيذ • +2</button><button class="btn outline-danger big" data-action="mystery-lose">❌ لم ينفّذ • 0</button></div></div>`}<p class="mystery-rule">تظهر حتى 8 بطاقات في السحبة، ولا تتكرر المفاجأة المختارة حتى تُستخدم جميع المفاجآت الـ21. المتبقي في الدورة: ${num(mysteryRemaining())}؛ التحديات العملية مدتها 20 ثانية.</p></section></div>`;
+}
+
+let ui={modal:null,mysteryResult:null,selectedQuestion:null,draft:{count:4,names:['الفريق الأول','الفريق الثاني','الفريق الثالث','الفريق الرابع'],timerSec:30,points:1}};
+let state=restoreGame()||freshGame();
+let toastTimer;
+function freshGame(){return {version:1,screen:'setup',teams:[],count:4,timerSec:30,points:1,used:{},current:null,history:[],mystery:emptyMystery(),momentum:null,createdAt:Date.now()}}
+function restoreGame(){try{const raw=localStorage.getItem(STORE_KEY);if(!raw)return null;const s=JSON.parse(raw);if(s.version!==1||!Array.isArray(s.teams)||!s.used||typeof s.used!=='object')return null;s.teams=s.teams.filter(t=>t&&typeof t.name==='string'&&Number.isFinite(t.score)).slice(0,10);s.history=Array.isArray(s.history)?s.history:[];if(!s.mystery||!Array.isArray(s.mystery.records))s.mystery=emptyMystery();if(!s.mystery.pending)s.mystery.pending=null;s.mystery.records=s.mystery.records.filter(r=>r&&s.teams.some(t=>t.id===r.teamId)&&MYSTERY_MAP[r.challengeId]&&Number.isFinite(r.points));normalizeMysteryDeck(s.mystery);if(s.mystery.pending&&(!s.teams.some(t=>t.id===s.mystery.pending.teamId)))s.mystery.pending=null;if(s.mystery.pending&&!['pick','shuffle','challenge','redraw'].includes(s.mystery.pending.phase))s.mystery.pending=null;if(s.mystery.pending&&s.mystery.pending.phase==='shuffle')s.mystery.pending.phase='pick';s.timerSec=TIMER_OPTIONS.includes(s.timerSec)?s.timerSec:30;s.points=[1,5,10].includes(s.points)?s.points:1;if(s.current&&!QUESTION_MAP[s.current.qid])s.current=null;if(s.current&&['revealed','expired'].includes(s.current.phase)){delete s.used[s.current.qid];s.current=null;s.screen='board'}if(s.current&&s.current.phase==='scored'){const u=s.used[s.current.qid];const h=s.history.find(x=>x.qid===s.current.qid);if(u){s.current.correct=u.result==='correct';s.current.givenPoints=u.score||0;s.current.choiceIndex=u.choiceIndex??h?.choiceIndex??null;s.current.timedOut=!!(u.timedOut??h?.timedOut);}}if(s.screen==='question'&&!s.current)s.screen='board';if(!['setup','board','question','result','final'].includes(s.screen))s.screen='board';return s}catch(e){return null}}
+function persist(){try{localStorage.setItem(STORE_KEY,JSON.stringify(state));return true}catch(e){showToast('تعذر الحفظ في هذا المتصفح. صدّر نسخة احتياطية من اللعبة.');return false}}
+function esc(v){return String(v??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;')}
+function num(v){return String(v).replace(/[٠-٩۰-۹]/g,c=>String("٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹".indexOf(c)%10))}
+const OMAN_FLAG_MARKUP='<span class="oman-flag" role="img" aria-label="علم سلطنة عُمان"><img src="https://www.flagcolorcodes.com/data/flag-of-oman.png" alt="" loading="eager" decoding="async" onerror="this.hidden=true"></span>'
+function replaceFlagEmojis(root=document.body){if(!root)return;const skip=new Set(['SCRIPT','STYLE','TEXTAREA','INPUT']);const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(node){if(!node.nodeValue||!node.nodeValue.includes('🇴🇲'))return NodeFilter.FILTER_REJECT;const p=node.parentNode;if(!p||skip.has(p.nodeName)||p.closest('.oman-flag'))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);for(const node of nodes){const parts=node.nodeValue.split('🇴🇲');const frag=document.createDocumentFragment();parts.forEach((part,i)=>{if(part)frag.appendChild(document.createTextNode(part));if(i<parts.length-1){const tpl=document.createElement('template');tpl.innerHTML=OMAN_FLAG_MARKUP;frag.appendChild(tpl.content.firstChild)}});node.parentNode.replaceChild(frag,node)}}
+function findTeam(id){return state.teams.find(t=>t.id===id)}
+function teamStats(teamId){let attempted=0,correct=0;for(const u of Object.values(state.used)){if(u.teamId===teamId&&u.result){attempted++;if(u.result==='correct')correct++}}return {attempted,correct,rate:attempted?Math.round(correct/attempted*100):0}}
+function scoreSort(){return [...state.teams].sort((a,b)=>b.score-a.score||teamStats(b.id).correct-teamStats(a.id).correct||a.order-b.order)}
+function leaders(){const a=scoreSort(),best=a[0]?.score||0;return best>0?a.filter(t=>t.score===best):[]}
+function headButtons(){return `<div class="actions">${state.screen!=='setup'?`<button class="btn" data-action="board">⌂ لوحة الأسئلة</button><button class="btn" data-action="settings">⚙️ الفرق والإعدادات</button>`:''}<button class="btn soft" data-action="fullscreen">⛶ ملء الشاشة</button></div>`}
+function header(){return `<header class="masthead"><div class="brand"><div class="flag-symbol" aria-label="علم عُمان">🇴🇲</div><div><div class="eyebrow">OMAN NATIONAL DAY • LIVE QUIZ</div><h1>راية <b>المجد</b> | تحدّي عُمان</h1></div></div><small class="developer-credit" dir="ltr">Developer: Sultan Al Balushi</small>${headButtons()}</header>`}
+function hero(subtext){return `<section class="hero"><div class="hero-inner"><div><div class="hero-sub">عُـــــمـــــان | فَخْـــــرٌ يَـــــجْـــــمَـــــعُـــــنَـــــا</div><h2>من يعرف عُمان أكثر؟</h2><p>${subtext}</p><span class="pill">🇴🇲 اليوم الوطني • 60 سؤالًا من مصادر موثوقة</span></div><div class="hero-visual" aria-hidden="true">
+  <span class="hero-halo"></span>
+  <svg class="hero-landscape" viewBox="0 0 520 270" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="mountainA" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#ffd5a2"/><stop offset="1" stop-color="#aa5165"/></linearGradient>
+      <linearGradient id="mountainB" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#eaa39b"/><stop offset="1" stop-color="#9d1d40"/></linearGradient>
+      <linearGradient id="fort" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#ffebc1"/><stop offset="1" stop-color="#e9a46d"/></linearGradient>
+    </defs>
+    <circle cx="278" cy="93" r="64" fill="#ffdb9950"/>
+    <path class="mtn far" d="M2 208 L75 128 L130 175 L212 86 L300 189 L384 108 L510 207 L520 260 L0 260 Z" fill="url(#mountainA)" opacity=".50"/>
+    <path class="mtn" d="M0 227 L86 168 L159 210 L230 142 L338 226 L414 160 L520 215 L520 270 L0 270 Z" fill="url(#mountainB)" opacity=".71"/>
+    <path d="M0 240 Q92 218 164 238 T332 236 T520 230 L520 270 L0 270 Z" fill="#c3324b"/>
+    <g transform="translate(258 119)" fill="url(#fort)" stroke="#b3545e" stroke-width="2">
+      <path d="M0 118V39h19V23h16v16h16V23h16v16h17V12h17v27h16V25h16v14h22v79Z"/>
+      <rect x="-7" y="112" width="178" height="14" rx="2" fill="#ffddb0"/>
+      <path d="M76 118V83a17 17 0 0 1 34 0v35Z" fill="#94465b"/>
+      <rect x="20" y="59" width="13" height="21" rx="5" fill="#a45a61"/>
+      <rect x="122" y="59" width="13" height="21" rx="5" fill="#a45a61"/>
+      <path d="M7 14V-6h25v20ZM64 14V-15h25v29ZM124 14V-2h25v16Z"/>
+    </g>
+    <path d="M0 261 Q123 239 235 255 T520 247 V270 H0Z" fill="#087a5b"/>
+    <path d="M0 264 Q130 253 248 264 T520 259" stroke="#74d6aa" stroke-width="2" fill="none" opacity=".7"/>
+  </svg>
+  <div class="hero-icon">🇴🇲</div>
+  <span class="hero-sparkle first">✦</span><span class="hero-sparkle second">✧</span><span class="hero-sparkle third">✦</span>
+</div></div></section>`}
+function footer(){return `<footer class="footer"><span>صُممت لتعمل <b>دون إنترنت</b> — تُحفظ الفرق والنتائج تلقائيًا على هذا المتصفح والجهاز.</span><span>المراجع: وزارة الخارجية العُمانية • تجربة عُمان • اليونسكو • المراسيم الرسمية | مراجعة: نوفمبر 2026</span></footer>`}
+function setup(){const d=ui.draft;return `${hero('أنشئ الفرق، اختر الوقت، ثم ابدأ مسابقة تنافسية على شاشة واحدة.')}<div class="setup-layout"><section class="card setup-card"><h2 class="setup-heading">⚙️ إعداد المسابقة</h2><p class="lead">حدد عدد الفرق من فريقين إلى عشرة، واكتب اسم كل فريق. عند الضغط على «حفظ الفرق وبدء اللعبة» سيتم حفظ الأسماء في هذا المتصفح.</p><label for="team-count" class="field-label">عدد الفرق <span id="count-bubble" class="count-bubble">${num(d.count)}</span></label><input id="team-count" class="range" type="range" min="2" max="10" step="1" value="${d.count}" aria-label="عدد الفرق"><h3 class="section-title">أسماء الفرق <small>يمكنك تغييرها لاحقًا</small></h3><div class="team-input-grid" id="teams-grid">${inputNames(d.names,d.count)}</div><div class="setup-row"><div><label class="field-label" for="setup-timer">مدة السؤال</label><select class="select" id="setup-timer">${TIMER_OPTIONS.map(t=>`<option value="${t}" ${d.timerSec===t?'selected':''}>${num(t)} ثانية</option>`).join('')}</select></div><div><label class="field-label" for="setup-points">نقاط الإجابة الصحيحة</label><select class="select" id="setup-points">${[1,5,10].map(p=>`<option value="${p}" ${d.points===p?'selected':''}>${num(p)} نقطة</option>`).join('')}</select></div></div><button class="btn primary big block" style="margin-top:25px" data-action="save-setup">حفظ الفرق وبدء اللعبة ←</button><p class="saved-hint">🔒 الحفظ محلي داخل المتصفح. لا تُرسل الأسماء أو النتائج إلى خادم.</p></section><aside class="setup-note"><h3>🎯 طريقة اللعب</h3><div class="rule-icon">🏆</div><ol class="howto"><li>اختر عدد الفرق وأسماءها.</li><li>من اللوحة اضغط على رقم سؤال لم يُستخدم.</li><li>اختر الفريق الذي سيوجّه إليه السؤال.</li><li>يظهر السؤال ويبدأ العدّ التنازلي.</li><li>اختر من أربع إجابات خلال العدّ التنازلي.</li><li>التقييم تلقائي: صحيح = نقاط، وخطأ أو انتهاء الوقت = صفر.</li><li>ارجع للوحة؛ يتحول السؤال المستخدم إلى الرمادي.</li></ol><p><span class="note-badge">ميزة مهمة</span> تستعيد الفرق والنقاط من نفس المتصفح عند إغلاق الصفحة وفتحها مجددًا.</p></aside></div>`}
+function inputNames(names,count){return Array.from({length:count},(_,i)=>`<label class="name-box"><span class="name-index">${num(i+1)}</span><input type="text" class="team-name-input" maxlength="28" autocomplete="off" value="${esc(names[i]||'')}" placeholder="اسم الفريق ${num(i+1)}" aria-label="اسم الفريق ${num(i+1)}"></label>`).join('')}
+function scoreStrip(){const ordered=scoreSort(),max=Math.max(0,...ordered.map(t=>t.score)),lead=leaders();return `<div class="score-strip">${ordered.map((t,i)=>{const st=teamStats(t.id),isLeader=lead.some(x=>x.id===t.id);return `<div class="team-score ${isLeader?'first':''}"><span class="tname" title="${esc(t.name)}">${isLeader?'<span class="top-gift">🎁</span>':''}<small class="team-n">${num(i+1)}. </small>${esc(t.name)}</span><div class="tscore">${num(t.score)} <small>نقطة</small></div><span class="attempt-line">✅ <b>${num(st.correct)}/${num(st.attempted)}</b> إجابات صحيحة</span><span class="score-meter" aria-hidden="true"><i style="--score-width:${max>0?Math.max(0,Math.round(t.score/max*100)):0}%"></i></span></div>`}).join('')}</div>`}
+function rankingDashboard(){const ordered=scoreSort(),max=Math.max(0,...ordered.map(t=>t.score)),lead=leaders(),attempts=ordered.reduce((n,t)=>n+teamStats(t.id).attempted,0);let notice=lead.length===0?'🎯 المنافسة بانتظار أول نقاط':lead.length===1?`👑 المتصدر الآن: ${esc(lead[0].name)}`:`👑 صدارة مشتركة: ${lead.map(t=>esc(t.name)).join(' • ')}`;return `<section class="rank-dashboard" aria-label="ترتيب الفرق الحالي"><div class="rank-head"><div><h2>🏆 ترتيب الفرق المباشر <span aria-hidden="true">🇴🇲</span></h2><small>يتغير الترتيب تلقائيًا • الرقم 2/3 يعني إجابتين صحيحتين من ثلاث محاولات • 🎁 نقاط الصندوق مستقلة</small></div><div class="leader-notice"><span class="gift">${lead.length?'🏆':'🇴🇲'}</span><span>${notice}</span></div></div><div class="rank-list">${ordered.map((t,i)=>{const a=teamStats(t.id),isLead=lead.some(x=>x.id===t.id);const rankNum=ordered.filter(x=>x.score>t.score).length+1;const bonus=bonusFor(t.id);const momentum=state.momentum?.teamId===t.id&&Date.now()-state.momentum.at<120000?state.momentum:null;return `<article class="rank-card ${isLead?'is-leader':''} ${momentum?.up>0?'rank-climb':''} ${momentum?'just-scored':''}" style="--rank-index:${i}" data-teamrank="${esc(t.id)}"><span class="rank-flag" aria-hidden="true">🇴🇲</span><div class="rank-pos">${isLead?'👑':t.score>0&&rankNum===2?'🥈':t.score>0&&rankNum===3?'🥉':'🏁'}<span>#${num(rankNum)}</span></div><div class="rank-donut" style="--accuracy:${a.rate};--ring:${a.rate>=70?'#139f65':a.rate>=40?'#e5a938':'#e55b68'}" aria-label="نسبة الإجابات الصحيحة ${num(a.rate)} بالمئة"><span>${num(a.correct)}/${num(a.attempted)}</span></div><div class="rank-info"><div class="rank-name">${esc(t.name)} ${isLead?'✨':''}${momentum?.up>0?`<span class="rank-rise">⬆️ تقدم ${num(momentum.up)} مركز</span>`:''}</div><div class="rank-attempts">✅ ${num(a.correct)} صحيح · ${num(a.attempted)} مجاب</div><div class="rank-score"><span>${num(t.score)} <small>نقطة</small></span>${bonus?`<span class="mystery-awards">🎁 ${bonus>0?'+':''}${num(bonus)} نقاط صندوق</span>`:''}</div><div class="rank-bar"><i style="--score-width:${max>0?Math.max(0,Math.round(t.score/max*100)):0}%"></i></div></div></article>`}).join('')}</div></section>`}
+function omanHeritage(){return `<div class="oman-heritage-band" aria-hidden="true"><span class="heritage-symbol">🇴🇲</span><span class="heritage-symbol">🏰</span><span class="heritage-word">عُمان • المجد • الفخر</span><span class="heritage-symbol">⛰️</span><span class="heritage-symbol">🌴</span><span class="heritage-word">O M A N</span><span class="heritage-symbol">🇴🇲</span></div>`}
+function mysteryPanel(){const records=mysteryData().records;const sum=records.reduce((n,r)=>n+r.points,0);return `<section class="mystery-panel mystery-below-board" aria-label="صندوق المفاجآت"><div><h3>🎁 صندوق المفاجآت • تحدّيات وطنية</h3><p>اختَر الفريق، شاهد خلط البطاقات ثم افتح بطاقة. ⏱️ 20 ثانية للتحدّي، والفرق يمكنها اللعب أكثر من مرة.</p><div class="mystery-stats">${num(records.length)} مرات لعب · صافي النقاط ${sum>0?'+':''}${num(sum)} · ${mysteryData().pending?'⏸️ تحدٍّ قيد اللعب':`${num(mysteryRemaining())} بطاقة متبقية من ${num(MYSTERY_CHALLENGES.length)}`}</div></div><button class="btn" data-action="mystery-open"><span class="box-emblem">🎁</span> ${mysteryData().pending?'استكمال':'اسحب بطاقة'}</button></section>`}
+function board(){const done=Object.keys(state.used).length,completed=Object.values(state.used).filter(u=>u.result).length;return `${omanHeritage()}<div class="board-compact">${hero('اختر الفئة ورقم السؤال والفريق؛ تظهر أربعة خيارات ويُحسب التقييم تلقائيًا.')}</div><div class="board-stats"><span class="stat-pill">أُجيب عن <b>${num(completed)}</b> من ${num(QUIZ_DATA.questions.length)}</span><span class="stat-pill">الفرق <b>${num(state.teams.length)}</b></span><span class="stat-pill">⏱️ ${num(state.timerSec)} ثانية/سؤال</span><span class="stat-pill">✅ +${num(state.points)} نقطة للصحيح</span><div class="progress" title="نسبة الأسئلة المستخدمة"><span style="width:${(done/QUIZ_DATA.questions.length)*100}%"></span></div></div>${rankingDashboard()}${mysteryData().pending?`<div class="resume"><div><strong>🎁 لديك تحدٍّ من صندوق المفاجآت بانتظار التقييم</strong><div class="saved-hint">اضغط استكمال التحدّي، ثم اختر منح نقطتين أو دون نقاط.</div></div><button class="btn gold" data-action="mystery-open">استكمال التحدّي</button></div>`:''}${state.current&&state.current.phase!=='scored'?`<div class="resume"><div><strong>⏸️ لديك سؤال جارٍ لفريق ${esc(findTeam(state.current.teamId)?.name||'')}</strong><div class="saved-hint">ارجع إليه لإكمال الإجابة؛ ينتهي الوقت تلقائيًا.</div></div><button class="btn gold" data-action="resume">متابعة السؤال</button></div>`:''}<h2 class="section-title">🎯 لوحة الأسئلة <small>الرمادي = السؤال أُجيب عنه، أو يجري حاليًا</small></h2><div class="board-grid">${QUIZ_DATA.categories.map(c=>{const list=QUIZ_DATA.questions.filter(q=>q.category===c.id);return `<section class="category-card ${c.style}"><div class="category-banner ${c.style}"><div class="emoji">${c.emoji}</div><h3>${c.title}</h3><p>${c.subtitle}</p></div><div class="question-tiles">${list.map(q=>{const u=state.used[q.id];return `<button type="button" ${u?'disabled':''} class="q-tile ${u?'used '+(u.result||'pending'):''}" data-action="pick-question" data-qid="${q.id}" aria-label="${c.title} السؤال ${q.number}${u?' مستخدم':''}" title="${u?'تم استخدام السؤال':'اختيار السؤال'}">${num(q.number)}</button>`}).join('')}</div></section>`}).join('')}</div>${mysteryPanel()}<div style="display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:10px;margin-top:22px"><button class="btn green" data-action="final">🏆 النتائج النهائية</button></div>`}
+function timerMarkup(){const t=state.current;const current=t.phase==='asking'?Math.max(0,Math.ceil((t.deadline-Date.now())/1000)):0;const ratio=Math.min(1,Math.max(0,current/(t.seconds||30)));return `<div class="timer-circle ${current<=10?'danger':''}" id="timer-circle"><span class="timer-rotor" aria-hidden="true"></span><svg viewBox="0 0 150 150" aria-hidden="true"><circle class="timer-ticks" cx="75" cy="75" r="70"></circle><circle class="track" cx="75" cy="75" r="60"></circle><circle id="timer-bar" class="bar" cx="75" cy="75" r="60" style="stroke-dashoffset:${377*(1-ratio)}"></circle><circle class="inner-ring" cx="75" cy="75" r="44"></circle></svg><div class="timer-digit"><strong id="timer-number" role="timer">${num(current)}</strong><span>ثانية</span></div></div>`}
+function questionScreen(){const t=state.current;if(!t)return '';const q=QUESTION_MAP[t.qid],cat=CATEGORY_MAP[q.category],team=findTeam(t.teamId);return `<section class="stage mc-stage"><div class="stage-top"><span class="stage-chip">${cat.emoji} ${cat.title} | السؤال ${num(q.number)}</span><span class="stage-team">🎯 ${esc(team?.name||'الفريق')}</span></div><div class="stage-body"><div class="stage-overline">اختر إجابة واحدة قبل انتهاء الوقت</div>${q.visual?`<div class="visual-clue" aria-label="رموز السؤال">${esc(q.visual)}</div>`:''}<h2 class="stage-question">${esc(q.question)}</h2>${q.hint?`<div class="hint">💡 ${esc(q.hint)}</div>`:''}<div class="timer-wrap">${timerMarkup()}</div><div class="choice-panel"><div class="choice-caption">${q.category==='truefalse'?'اختر التقييم والتفسير الصحيحين':'🎯 اختر أحد الخيارات الأربعة — سيتم التقييم فورًا'}</div><div class="choice-grid">${q.choices.map((ch,i)=>`<button type="button" class="choice-btn" data-action="answer-choice" data-index="${i}" aria-label="الخيار ${['أ','ب','ج','د'][i]}: ${esc(ch)}"><span class="choice-letter">${['أ','ب','ج','د'][i]}</span><span class="choice-txt">${esc(ch)}</span></button>`).join('')}</div></div></div><div class="stage-foot"><button class="btn ghost" data-action="board">⌂ اللوحة</button><button class="btn ghost" data-action="cancel-question">إلغاء السؤال قبل الإجابة</button></div></section>`}
+function resultScreen(){const t=state.current;if(!t)return '';const team=findTeam(t.teamId),q=QUESTION_MAP[t.qid],correct=t.correct,timeout=t.timedOut,chosen=t.choiceIndex,st=teamStats(t.teamId),answer=q.choices[q.correctIndex];return `<section class="stage mc-stage"><div class="stage-top"><span class="stage-chip">${CATEGORY_MAP[q.category].emoji} ${CATEGORY_MAP[q.category].title} | السؤال ${num(q.number)}</span><span class="stage-team">🎯 ${esc(team?.name||'الفريق')}</span></div><div class="stage-body"><div class="stage-overline">تم تسجيل الإجابة وتحديث الترتيب تلقائيًا</div>${q.visual?`<div class="visual-clue">${esc(q.visual)}</div>`:''}<h2 class="stage-question">${esc(q.question)}</h2><div class="choice-panel"><div class="choice-grid">${q.choices.map((ch,i)=>`<button type="button" disabled class="choice-btn ${i===q.correctIndex?'is-correct':i===chosen?'is-wrong':''}" aria-label="${esc(ch)}"><span class="choice-letter">${['أ','ب','ج','د'][i]}</span><span class="choice-txt">${esc(ch)}</span><span class="choice-check">${i===q.correctIndex?'✅':i===chosen?'✕':''}</span></button>`).join('')}</div></div><div class="mc-result ${correct?'good':'bad'}"><h3>${timeout?'⏰ انتهى الوقت — دون نقاط':correct?'🎉 إجابة صحيحة!':'❌ إجابة غير صحيحة'}</h3><p class="chosen-description">${timeout?'لم يُختر أي جواب قبل انتهاء الوقت':chosen===null?'تقييم سابق محفوظ':`اختيار الفريق: ${esc(q.choices[chosen])}`}</p><p>✅ الإجابة الصحيحة: <b>${esc(answer)}</b></p><p>${esc(q.explain)}</p><p class="points-note">${esc(team?.name||'الفريق')} • +${num(t.givenPoints||0)} نقطة • ${num(st.correct)}/${num(st.attempted)} إجابات صحيحة</p><a class="source-link" href="${esc(QUIZ_DATA.sources[q.source][1])}" target="_blank" rel="noopener noreferrer">🔗 ${esc(QUIZ_DATA.sources[q.source][0])}</a></div></div><div class="stage-foot"><button class="btn gold big" data-action="finish-question">⌂ العودة إلى لوحة الأسئلة</button></div></section>`}
+function finalScreen(){const ordered=scoreSort(),best=ordered[0]?.score??0,winners=leaders();return `<section class="stage winner-stage"><div class="stage-top"><span class="stage-chip">🏁 النتائج النهائية</span><span class="stage-team">🇴🇲 تحدّي عُمان الوطني</span></div><div class="stage-body"><div class="trophy">🏆</div><div class="stage-overline">مبروك لجميع الفرق المشاركة</div><h2 class="stage-question">${best===0?'المنافسة بانتظار أول إجابة صحيحة!':winners.length===1?'الفريق الفائز: '+esc(winners[0].name):'تعادل في الصدارة!'}</h2><p style="font-size:21px;color:#f5dba2">${best===0?'لم تُمنح نقاط بعد':winners.length>1?`الفرق المتعادلة: ${winners.map(t=>esc(t.name)).join(' • ')}`:`${num(best)} نقطة للفريق الفائز`}</p><div class="winner-list">${ordered.map((t,i)=>{const st=teamStats(t.id),rankNum=ordered.filter(x=>x.score>t.score).length+1;return `<div class="winner-item"><div class="rank">${winners.some(w=>w.id===t.id)?'🎁':t.score>0&&rankNum===2?'🥈':t.score>0&&rankNum===3?'🥉':'⭐'}</div><h3>${esc(t.name)}</h3><div class="points">${num(t.score)} <span style="font-size:14px">نقطة · ${num(st.correct)}/${num(st.attempted)} إجابات صحيحة${bonusFor(t.id)?` · 🎁 ${bonusFor(t.id)>0?'+':''}${num(bonusFor(t.id))} نقاط صندوق`:''}</span></div></div>`}).join('')}</div></div><div class="stage-foot"><button class="btn gold big" data-action="board">⌂ العودة إلى الأسئلة</button><button class="btn green big" data-action="new-round">↻ إعادة اللعب بنفس الفرق</button></div></section>`}
+function modalHtml(){if(!ui.modal)return '';if(ui.modal==='add-team'){const count=state.teams.length;return `<div class="modal-backdrop" role="presentation"><section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><div><div class="note-badge">🇴🇲 إدارة الفرق • ${num(count)}/${num(10)}</div><h2 id="modal-title">➕ إضافة فريق أثناء اللعبة</h2><p>الفريق الجديد يبدأ من صفر. نقاط الفرق الحالية والأسئلة المستخدمة لن تتغيّر.</p></div><button class="x-button" data-action="close-modal" aria-label="إغلاق">×</button></div><form id="add-team-form" class="add-team-form"><label class="field-label" for="new-team-name">اسم الفريق الجديد</label><label class="name-box"><span class="name-index">${num(count+1)}</span><input type="text" id="new-team-name" maxlength="28" autocomplete="off" spellcheck="false" required placeholder="اكتب اسم الفريق" aria-label="اسم الفريق الجديد"></label><p class="add-team-help">✅ تُحفظ الإضافة تلقائياً. ${num(count)} فريق/فرق حالياً · الحد الأقصى ${num(10)} فرق. يمكن للفريق الجديد اختيار الأسئلة المتبقية وفتح صندوق المفاجآت.</p><div class="modal-actions"><button type="button" class="btn" data-action="close-modal">إلغاء</button><button type="submit" class="btn green">✅ حفظ وإضافة الفريق</button></div></form></section></div>`}if(ui.modal==='mystery-reveal')return mysteryChallengeHtml();if(ui.modal==='mystery-choose'){return `<div class="modal-backdrop" role="presentation"><section class="modal-card" role="dialog" aria-modal="true"><div class="modal-head"><div><h2>🎁 اختر الفريق الذي سيفتح الصندوق</h2><p>جميع الفرق يمكنها المشاركة مرات متعددة، دون استهلاك أي سؤال.</p></div><button class="x-button" data-action="close-modal">×</button></div><div class="choose-grid">${state.teams.map((t,i)=>`<button class="choose-team" data-action="mystery-team" data-teamid="${t.id}"><span class="mini-circle">${num(i+1)}</span><span>${esc(t.name)}</span></button>`).join('')}</div></section></div>`}if(ui.modal==='choose'){const q=QUESTION_MAP[ui.selectedQuestion];if(!q)return '';const c=CATEGORY_MAP[q.category];return `<div class="modal-backdrop" role="presentation"><section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><div><div class="note-badge">${c.emoji} ${c.title} • السؤال ${num(q.number)}</div><h2 id="modal-title">من سيجيب عن هذا السؤال؟</h2><p>اختر الفريق أولًا؛ لن يظهر السؤال إلا بعد اختيار الفريق.</p></div><button class="x-button" data-action="close-modal" aria-label="إغلاق">×</button></div><div class="choose-grid">${state.teams.map((t,i)=>`<button class="choose-team" data-action="choose-team" data-teamid="${t.id}"><span class="mini-circle">${num(i+1)}</span><span>${esc(t.name)}</span></button>`).join('')}</div><p class="saved-hint" style="margin-top:16px">يبدأ عدّاد السؤال بعد اختيار الفريق. لا يمكن استخدام السؤال مرة ثانية بعد الإجابة.</p></section></div>`}
+if(ui.modal==='settings')return `<div class="modal-backdrop" role="presentation"><section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><div><h2 id="modal-title">⚙️ إعدادات المقدم</h2><p>يمكنك إدارة الفرق والتحكم في الوقت والنقاط والحفظ والتراجع من هذه النافذة دون تغيير الأسئلة.</p></div><button class="x-button" data-action="close-modal" aria-label="إغلاق">×</button></div><div id="settings-team-names">${inputNames(state.teams.map(t=>t.name),state.teams.length)}</div><div class="setup-row"><div><label class="field-label" for="settings-timer">مدة الأسئلة القادمة</label><select id="settings-timer" class="select">${TIMER_OPTIONS.map(t=>`<option value="${t}" ${state.timerSec===t?'selected':''}>${num(t)} ثانية</option>`).join('')}</select></div><div><label class="field-label" for="settings-points">نقاط الأسئلة القادمة</label><select id="settings-points" class="select">${[1,5,10].map(t=>`<option value="${t}" ${state.points===t?'selected':''}>${num(t)} نقطة</option>`).join('')}</select></div></div><div class="modal-actions"><button class="btn" data-action="close-modal">إلغاء</button><button class="btn green" data-action="save-settings">حفظ التغييرات</button></div><hr style="border:0;border-top:1px solid #e5e6df;margin:24px 0"><div class="settings-admin-tools"><h3>🛠️ أدوات إدارة اللعبة</h3><div class="actions"><button class="btn green" data-action="add-team" ${state.teams.length>=10?'disabled title="الحد الأقصى عشرة فرق"':''}>➕ إضافة فريق ${num(state.teams.length)}/${num(10)}</button><button class="btn" data-action="undo" ${!(state.history.length||mysteryData().records.length)?'disabled':''}>↶ التراجع عن آخر نتيجة</button><button class="btn" data-action="export">↧ نسخة احتياطية</button><button class="btn" data-action="import">↥ استيراد حفظ</button><button class="btn outline-danger" data-action="new-round">↻ جولة جديدة</button></div><div class="saved-hint">تُحفظ الفرق والنتائج تلقائيًا على هذا المتصفح، ويمكنك تصدير نسخة احتياطية عند الحاجة.</div></div><hr style="border:0;border-top:1px solid #e5e6df;margin:24px 0"><div class="actions"><button class="btn outline-danger" data-action="reset-setup">إعداد لعبة جديدة (حذف النتائج)</button></div></section></div>`;
+return ''}
+function render(){if(state.current&&state.current.phase==='asking'&&Date.now()>=state.current.deadline)gradeAnswer(null);const view=state.screen==='setup'?setup():state.screen==='board'?board():state.screen==='question'?questionScreen():state.screen==='result'?resultScreen():state.screen==='final'?finalScreen():setup();document.querySelector('#app').innerHTML=header()+view+footer();document.querySelector('#modal-root').innerHTML=modalHtml();document.title=`راية المجد | ${state.screen==='board'?'لوحة الأسئلة':state.screen==='question'?'سؤال مباشر':'تحدّي عُمان'}`;replaceFlagEmojis(document.body);if(state.screen==='question')updateTimer()}
+function showToast(msg){const el=document.querySelector('#toast');if(!el)return;el.textContent=msg;replaceFlagEmojis(el);el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3300)}
+function closeModal(){ui.modal=null;ui.mysteryResult=null;ui.selectedQuestion=null;render()}
+function updateTimer(){if(!state.current||state.current.phase!=='asking')return;const remain=Math.max(0,Math.ceil((state.current.deadline-Date.now())/1000));if(remain<=0){gradeAnswer(null);if(state.screen==='question')render();else{persist();render()}showToast('⏰ انتهى الوقت — سُجّل السؤال دون نقاط');return}if(state.screen!=='question')return;const n=document.getElementById('timer-number'),b=document.getElementById('timer-bar'),c=document.getElementById('timer-circle');if(n)n.textContent=num(remain);if(b)b.style.strokeDashoffset=377*(1-Math.min(1,remain/state.current.seconds));if(c)c.classList.toggle('danger',remain<=10)}
+function validateNames(list){const clean=list.map(s=>String(s).trim().replace(/\s+/g,' ').slice(0,28));if(clean.some(x=>!x)){showToast('اكتب اسمًا لكل فريق.');return null}if(new Set(clean).size!==clean.length){showToast('يجب أن تكون أسماء الفرق مختلفة.');return null}return clean}
+function startGame(){const count=ui.draft.count;const inputs=[...document.querySelectorAll('#teams-grid .team-name-input')];const names=validateNames(inputs.map(x=>x.value));if(!names)return;state=freshGame();state.teams=names.map((name,i)=>({id:'team-'+(i+1),order:i,name,score:0}));state.count=count;state.timerSec=Number(document.querySelector('#setup-timer').value);state.points=Number(document.querySelector('#setup-points').value);state.screen='board';persist();render();window.scrollTo({top:0,behavior:'instant'});showToast('🇴🇲 حُفظت الفرق — لتبدأ المنافسة!')}
+function openAddTeam(){if(state.screen==='setup')return;if(state.teams.length>=10){showToast('الحد الأقصى هو عشرة فرق');return}if(state.current?.phase==='asking'){showToast('أنهِ السؤال الجاري أولًا ثم أضف الفريق من اللوحة');return}if(mysteryData().pending){showToast('احسم تحدّي صندوق المفاجآت أولًا ثم أضف الفريق');return}ui.modal='add-team';render();document.getElementById('new-team-name')?.focus()}
+function addTeam(){if(state.screen==='setup'||state.teams.length>=10){showToast('لا يمكن إضافة أكثر من عشرة فرق');return}if(state.current?.phase==='asking'||mysteryData().pending){showToast('أكمل الجولة الحالية قبل إضافة فريق');return}const entry=document.getElementById('new-team-name');if(!entry)return;const checked=validateNames([...state.teams.map(t=>t.name),entry.value]);if(!checked)return;const id=Array.from({length:10},(_,i)=>'team-'+(i+1)).find(candidate=>!findTeam(candidate));if(!id){showToast('الحد الأقصى هو عشرة فرق');return}const name=checked.at(-1);state.teams.push({id,order:state.teams.length,name,score:0});state.count=state.teams.length;state.momentum=null;ui.modal=null;if(state.screen==='final')state.screen='board';persist();render();showToast('✅ أُضيف الفريق «'+name+'» بنجاح — تبدأ نقاطه من الصفر')}
+function beginQuestion(qid,teamId){if(state.current&&state.current.phase!=='scored'){showToast('أكمل السؤال الجاري أولًا');return}if(state.used[qid]||!QUESTION_MAP[qid]||!findTeam(teamId))return;const startedAt=Date.now();state.used[qid]={teamId,result:null,score:0};state.current={qid,teamId,phase:'asking',deadline:startedAt+state.timerSec*1000,seconds:state.timerSec,points:state.points,startedAt};state.screen='question';ui.modal=null;ui.selectedQuestion=null;persist();render();window.scrollTo({top:0,behavior:'smooth'})}
+function gradeAnswer(choiceIndex){const t=state.current;if(!t||t.phase!=='asking')return false;const q=QUESTION_MAP[t.qid],u=state.used[t.qid];if(!q||!u||u.result!==null)return false;const expired=Date.now()>=t.deadline;const answer=expired?null:choiceIndex;if(answer!==null&&(!Number.isInteger(answer)||answer<0||answer>3))return false;const correct=answer===q.correctIndex;clearTimeout(toastTimer);document.getElementById('toast')?.classList.remove('show');const points=correct?t.points:0;u.result=correct?'correct':'wrong';u.score=points;u.choiceIndex=answer;u.timedOut=answer===null;u.gradedAt=Date.now();const team=findTeam(t.teamId);const rankBefore=previousRanks();if(team)team.score+=points;if(points)noteRankChange(team.id,rankBefore);state.history.push({qid:t.qid,teamId:t.teamId,points,correct,choiceIndex:answer,timedOut:answer===null,at:u.gradedAt});t.phase='scored';t.correct=correct;t.choiceIndex=answer;t.timedOut=answer===null;t.givenPoints=points;state.screen='result';persist();if(correct)confetti();return true}
+function goBoard(){state.screen='board';if(state.current?.phase==='scored')state.current=null;persist();ui.modal=null;render();window.scrollTo({top:0,behavior:'smooth'})}
+function confetti(){const root=document.getElementById('confetti');root.innerHTML='';const colors=['#a02e3c','#f7f3e8','#12634b','#d7ac62'];for(let i=0;i<75;i++){const el=document.createElement('i');el.style.left=(Math.random()*100)+'%';el.style.background=colors[i%colors.length];el.style.animationDuration=(2+Math.random()*1.5)+'s';el.style.animationDelay=(Math.random()*.4)+'s';el.style.setProperty('--drift',((Math.random()-.5)*280)+'px');root.appendChild(el)}setTimeout(()=>{root.innerHTML=''},4000)}
+function openMystery(){if(state.screen==='setup')return;if(state.current?.phase==='asking'){showToast('أنهِ السؤال الجاري أولاً');return}if(mysteryData().pending){ui.modal='mystery-reveal';render();return}ui.mysteryResult=null;ui.modal='mystery-choose';render()}
+function shuffledCards(exclude=[]){
+ const m=mysteryData();
+ // Start a fresh 21-card cycle only after every card was selected once.
+ if(m.drawnCards.length>=MYSTERY_CHALLENGES.length)m.drawnCards=[];
+ const arr=MYSTERY_CHALLENGES.map(c=>c.id).filter(id=>!m.drawnCards.includes(id)&&!exclude.includes(id));
+ // Free redraw when the final available card was the redraw itself starts a new cycle.
+ if(!arr.length&&exclude.length){m.drawnCards=[];arr.push(...MYSTERY_CHALLENGES.map(c=>c.id).filter(id=>!exclude.includes(id)))}
+ for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}
+ return arr.slice(0,8);
+}
+function chooseMysteryTeam(teamId){if(mysteryData().pending||!findTeam(teamId))return;const pending={teamId,phase:'shuffle',cards:shuffledCards(),chosenAt:Date.now()};mysteryData().pending=pending;persist();ui.modal='mystery-reveal';render();setTimeout(()=>{if(mysteryData().pending===pending&&pending.phase==='shuffle'){pending.phase='pick';persist();if(ui.modal==='mystery-reveal')render()}},2000)}
+function pickMysteryCard(index){const p=mysteryData().pending;if(!p||p.phase!=='pick'||!Number.isInteger(index)||index<0||index>=p.cards.length)return;p.challengeId=p.cards[index];const c=MYSTERY_MAP[p.challengeId];if(!c)return;const deck=mysteryData();if(deck.drawnCards.includes(p.challengeId))return;deck.drawnCards.push(p.challengeId);persist();if(c.type==='instant'){settleMystery(c.points,c.points>0?'won':'penalty');return}if(c.type==='leader'){const sorted=scoreSort();const highest=sorted[0]?.score??0;const contenders=sorted.filter(t=>t.score===highest);const recipient=contenders.find(t=>t.id===p.teamId)||contenders[0];settleMystery(2,'won',recipient?.id);return}if(c.type==='redraw'){p.phase='redraw';persist();render();return}p.phase='challenge';p.deadline=Date.now()+20000;persist();render()}
+function redrawMystery(){const p=mysteryData().pending;if(!p||p.phase!=='redraw'||p.challengeId!=='free-redraw')return;p.cards=shuffledCards(['free-redraw']);p.challengeId=null;p.deadline=0;p.phase='shuffle';persist();render();setTimeout(()=>{if(mysteryData().pending===p&&p.phase==='shuffle'){p.phase='pick';persist();if(ui.modal==='mystery-reveal')render()}},2000)}
+function settleMystery(points,result,recipientId=null){const m=mysteryData(),p=m.pending;if(!p||!findTeam(p.teamId)||p.phase==='shuffle'||p.phase==='redraw')return;const c=MYSTERY_MAP[p.challengeId];if(!c||p.phase==='pick'&&!['instant','leader'].includes(c.type)||p.phase==='challenge'&&c.type!=='challenge')return;const team=findTeam(recipientId||p.teamId);if(!team)return;const before=previousRanks();m.records.push({id:'mystery-'+Date.now()+'-'+m.records.length,teamId:team.id,drawnBy:p.teamId,challengeId:p.challengeId,result,points,at:Date.now()});m.pending=null;team.score+=points;if(points!==0)noteRankChange(team.id,before);ui.mysteryResult={team:team.name,emoji:c.emoji,detail:c.type==='leader'?`هدية المتصدر: حصل فريق ${team.name} على نقطتين إضافيتين.`:c.detail,points};ui.modal='mystery-reveal';persist();render();if(points>0)confetti();showToast(`🎁 ${team.name}: ${points>0?'+':''}${num(points)} نقطة`)}
+function decideMystery(won){const p=mysteryData().pending;if(!p||p.phase!=='challenge')return;settleMystery(won?2:0,won?'won':'missed')}
+function updateMysteryTimer(){const p=mysteryData().pending;if(!p||p.phase!=='challenge')return;const n=Math.max(0,Math.ceil((p.deadline-Date.now())/1000));if(n<=0){settleMystery(0,'timeout');showToast('⏱️ انتهت 20 ثانية، دون نقاط');return}const el=document.getElementById('mystery-seconds'),clock=document.getElementById('mystery-clock');if(el)el.textContent=num(n);if(clock)clock.classList.toggle('danger',n<=5)}
+function lastAward(){return mysteryData().records.at(-1)}
+function undoLast(){const quiz=state.history.at(-1),bonus=lastAward();if(!quiz&&!bonus)return;const isBonus=bonus&&(!quiz||bonus.at>=quiz.at);if(!confirm(isBonus?'التراجع عن آخر نتيجة صندوق المفاجآت؟ سيُلغى أثر النقاط على الفريق.':'التراجع عن آخر تقييم وإعادة إتاحة ذلك السؤال؟'))return;if(isBonus){const item=mysteryData().records.pop(),t=findTeam(item.teamId);if(t)t.score-=item.points;showToast('↶ أُلغيت نتيجة صندوق المفاجآت')}else{const item=state.history.pop(),t=findTeam(item.teamId);if(t)t.score-=item.points;delete state.used[item.qid];if(state.current?.qid===item.qid)state.current=null;showToast('↶ أُلغيَ آخر تقييم، والسؤال متاح مجددًا')}state.momentum=null;state.screen='board';ui.modal=null;persist();render()}
+function downloadBackup(){const blob=new Blob([JSON.stringify({format:'oman-quiz-backup-v1',exportedAt:new Date().toISOString(),game:state},null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='oman-national-day-quiz-backup.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000)}
+function resetRound(){if(!confirm('بدء جولة جديدة بنفس الفرق؟ ستُصفّر النقاط والأسئلة المستخدمة. يُفضّل تصدير نسخة احتياطية أولاً.'))return;state.teams.forEach(t=>t.score=0);state.used={};state.current=null;state.history=[];state.mystery=emptyMystery();state.momentum=null;state.screen='board';ui.modal=null;persist();render();showToast('بدأت جولة جديدة')}
+function resetSetup(){if(!confirm('هل تريد إعادة إعداد اللعبة؟ ستُحذف النقاط والأسئلة المستخدمة على هذا المتصفح.'))return;const names=state.teams.map(t=>t.name);ui.draft={count:Math.max(2,Math.min(10,names.length||4)),names:names.length?names:['الفريق الأول','الفريق الثاني','الفريق الثالث','الفريق الرابع'],timerSec:state.timerSec,points:state.points};state=freshGame();state.screen='setup';ui.modal=null;persist();render()}
+function namesForSettings(){return [...document.querySelectorAll('#settings-team-names .team-name-input')].map(i=>i.value)}
+function saveSettings(){const names=validateNames(namesForSettings());if(!names)return;state.teams.forEach((t,i)=>t.name=names[i]);state.timerSec=Number(document.getElementById('settings-timer').value);state.points=Number(document.getElementById('settings-points').value);ui.modal=null;persist();render();showToast('حُفظت التعديلات')}
+function handleAction(button){const action=button.dataset.action;switch(action){case 'fullscreen':{if(document.fullscreenElement){document.exitFullscreen?.()}else{document.documentElement.requestFullscreen?.().catch(()=>showToast('ملء الشاشة غير متاح في هذا المتصفح'))}break}
+case 'save-setup':startGame();break;
+case 'add-team':openAddTeam();break;
+case 'mystery-open':openMystery();break;
+case 'mystery-team':chooseMysteryTeam(button.dataset.teamid);break;
+case 'mystery-win':decideMystery(true);break;
+case 'mystery-lose':decideMystery(false);break;
+case 'mystery-pick-card':pickMysteryCard(Number(button.dataset.index));break;
+case 'mystery-redraw':redrawMystery();break;
+case 'mystery-close':ui.mysteryResult=null;ui.modal=null;state.screen='board';render();break;
+case 'pick-question':{if(mysteryData().pending){showToast('احسم تحدّي صندوق المفاجآت أولًا');return}if(state.current&&state.current.phase!=='scored'){showToast('أكمل السؤال الجاري أو ألغِه قبل بدء سؤال آخر');return}const qid=button.dataset.qid;if(state.used[qid]||!QUESTION_MAP[qid])return;ui.selectedQuestion=qid;ui.modal='choose';render();break}
+case 'choose-team':if(!mysteryData().pending)beginQuestion(ui.selectedQuestion,button.dataset.teamid);break;
+case 'close-modal':closeModal();break;
+case 'resume':state.screen='question';persist();render();break;
+case 'board':goBoard();break;
+
+
+
+case 'answer-choice':if(gradeAnswer(Number(button.dataset.index)))render();break;
+case 'finish-question':goBoard();break;
+case 'cancel-question':{if(!state.current)return;if(!confirm('إلغاء السؤال دون احتساب نقاط؟ سيعود رقم السؤال متاحًا في اللوحة.'))return;delete state.used[state.current.qid];state.current=null;state.screen='board';persist();render();break}
+case 'settings':ui.modal='settings';render();break;
+case 'save-settings':saveSettings();break;
+case 'undo':undoLast();break;
+case 'final':state.screen='final';ui.modal=null;persist();render();break;
+case 'new-round':resetRound();break;
+case 'reset-setup':resetSetup();break;
+case 'export':downloadBackup();break;
+case 'import':document.getElementById('import-file').click();break;
+}}
+document.body.addEventListener('click',e=>{const t=e.target.closest('[data-action]');if(t){e.preventDefault();handleAction(t)}});
+document.body.addEventListener('submit',e=>{if(e.target.id==='add-team-form'){e.preventDefault();addTeam()}});
+document.body.addEventListener('input',e=>{if(e.target.id==='team-count'){const visible=[...document.querySelectorAll('#teams-grid input')].map(x=>x.value);ui.draft.names=[...visible,...ui.draft.names.slice(visible.length)];ui.draft.count=Number(e.target.value);while(ui.draft.names.length<ui.draft.count)ui.draft.names.push('الفريق '+num(ui.draft.names.length+1));document.getElementById('count-bubble').textContent=num(ui.draft.count);document.getElementById('teams-grid').innerHTML=inputNames(ui.draft.names,ui.draft.count)}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ui.modal){closeModal()}});
+function validatedBackup(raw){
+ if(!raw||raw.format!=='oman-quiz-backup-v1'||!raw.game||raw.game.version!==1)throw Error('Invalid backup format');
+ const g=raw.game;
+ if(!Array.isArray(g.teams)||g.teams.length<2||g.teams.length>10||!Array.isArray(g.history)||!g.used||typeof g.used!=='object'||Array.isArray(g.used))throw Error('Invalid game data');
+ const teams=g.teams.map((t,i)=>{const name=String(t?.name??'').trim().replace(/\s+/g,' ').slice(0,28);if(!name)throw Error('Empty team name');return{id:'team-'+(i+1),order:i,name,score:0}});
+ if(new Set(teams.map(t=>t.name)).size!==teams.length)throw Error('Duplicate names');
+ const teamsById=new Map(teams.map(t=>[t.id,t]));
+ const used={};const history=[];
+ if(g.history.length>QUIZ_DATA.questions.length)throw Error('Too many answers');
+ for(const h of g.history){
+  if(!h||!QUESTION_MAP[h.qid]||used[h.qid]||!teamsById.has(h.teamId)||typeof h.correct!=='boolean')throw Error('Invalid judgement');
+  const points=Number(h.points);
+  if(!Number.isInteger(points)||(h.correct?![1,5,10].includes(points):points!==0))throw Error('Invalid score');
+  const source=g.used[h.qid];
+  if(h.choiceIndex!==undefined&&h.choiceIndex!==null&&(!Number.isInteger(h.choiceIndex)||h.choiceIndex<0||h.choiceIndex>3||h.correct!==(h.choiceIndex===QUESTION_MAP[h.qid].correctIndex)))throw Error('Invalid chosen answer');
+  if(h.choiceIndex===null&&h.correct&&h.timedOut)throw Error('Invalid timeout grading');
+  if(!source||source.teamId!==h.teamId||source.result!==(h.correct?'correct':'wrong')||Number(source.score)!==points)throw Error('Score mismatch');
+  used[h.qid]={teamId:h.teamId,result:h.correct?'correct':'wrong',score:points,choiceIndex:h.choiceIndex??null,timedOut:!!h.timedOut,gradedAt:Number(h.at)||Date.now()};
+  teamsById.get(h.teamId).score+=points;
+  history.push({qid:h.qid,teamId:h.teamId,points,correct:h.correct,choiceIndex:h.choiceIndex??null,timedOut:!!h.timedOut,at:Number(h.at)||Date.now()});
+ }
+ const timerSec=TIMER_OPTIONS.includes(g.timerSec)?g.timerSec:30;
+ const points=[1,5,10].includes(g.points)?g.points:1;
+ let current=null;
+ const c=g.current;
+ if(c&&QUESTION_MAP[c.qid]&&teamsById.has(c.teamId)&&!used[c.qid]&&g.used[c.qid]&&g.used[c.qid].teamId===c.teamId&&g.used[c.qid].result===null&&c.phase==='asking'){
+  const seconds=Number(c.seconds);
+  const deadline=Number(c.deadline);
+  current={qid:c.qid,teamId:c.teamId,phase:c.phase,seconds:TIMER_OPTIONS.includes(seconds)||seconds===10?seconds:timerSec,points:[1,5,10].includes(c.points)?c.points:points,deadline:Number.isFinite(deadline)?deadline:Date.now(),startedAt:Number(c.startedAt)||Date.now()};
+  /* overdue restored sessions are automatically graded on the next render */
+  used[c.qid]={teamId:c.teamId,result:null,score:0};
+ }
+ const md=g.mystery||emptyMystery();
+ if(!Array.isArray(md.records)||md.records.length>10000)throw Error('Invalid mystery history');
+ const mystery={records:[],pending:null,drawnCards:Array.isArray(md.drawnCards)?md.drawnCards.slice():null};
+ for(const r of md.records){
+  if(!r||!teamsById.has(r.teamId)||!MYSTERY_MAP[r.challengeId]||!['won','missed','timeout','penalty'].includes(r.result)||Number(r.points)!==(r.result==='won'?2:r.result==='penalty'?-1:0))throw Error('Invalid bonus record');
+  const at=Number.isFinite(Number(r.at))?Number(r.at):Date.now();
+  const entry={id:String(r.id||'mystery-'+mystery.records.length),teamId:r.teamId,drawnBy:teamsById.has(r.drawnBy)?r.drawnBy:r.teamId,challengeId:r.challengeId,result:r.result,points:Number(r.points),at};
+  mystery.records.push(entry);teamsById.get(r.teamId).score+=entry.points;
+ }
+ if(md.pending){const p=md.pending;if(!teamsById.has(p.teamId)||!['pick','shuffle','challenge','redraw'].includes(p.phase))throw Error('Invalid pending bonus');mystery.pending={teamId:p.teamId,phase:p.phase==='shuffle'?'pick':p.phase,cards:Array.isArray(p.cards)&&p.cards.length===8&&p.cards.every(id=>MYSTERY_MAP[id])?p.cards:shuffledCards(),challengeId:p.challengeId,deadline:Number(p.deadline)||0,chosenAt:Number(p.chosenAt)||Date.now()}}
+ normalizeMysteryDeck(mystery);
+ for(const id of Object.keys(g.used))if(QUESTION_MAP[id]&&!used[id]){if(g.used[id]?.result!==null)throw Error('Unmatched result')}
+ return {version:1,screen:current?'question':'board',teams,count:teams.length,timerSec,points,used,current,history,mystery,momentum:null,createdAt:Number(g.createdAt)||Date.now()};
+}
+document.getElementById('import-file').addEventListener('change',async(e)=>{
+ const file=e.target.files?.[0];if(!file)return;
+ try{
+  const raw=JSON.parse(await file.text());
+  const loaded=validatedBackup(raw);
+  if(!confirm('استيراد هذا الحفظ سيستبدل الجلسة الحالية. هل تريد المتابعة؟'))return;
+  state=loaded;ui.modal=null;ui.selectedQuestion=null;persist();render();showToast('تم استيراد نسخة اللعبة بنجاح');
+ }catch(err){console.warn('Backup validation failed',err);showToast('ملف الحفظ غير صالح أو بياناته غير متطابقة. لم تتغير الجلسة الحالية.')}finally{e.target.value=''}
+});
+// Save every judgement, question choice and setting change. Timers use real time, so they recover accurately after refresh.
+setInterval(()=>{updateTimer();updateMysteryTimer()},200);
+if(state.screen==='setup'&&state.teams.length>0){ui.draft={count:state.teams.length,names:state.teams.map(t=>t.name),timerSec:state.timerSec,points:state.points}}
+replaceFlagEmojis(document.body);
+render();
+</script>
+</body>
+</html>
